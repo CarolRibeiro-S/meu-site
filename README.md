@@ -1,88 +1,63 @@
-# 💻 Carol Ribeiro - Portfólio Pessoal
+# 💻 Meu Primeiro Site Profissional
 
-![Banner do Site](./assets/banner.png)
+Este projeto é um site portfólio pessoal desenvolvido com HTML, CSS e JavaScript, com design moderno, responsivo e pronto para apresentar minhas habilidades e projetos como Desenvolvedora Full Stack.
 
-Seja bem-vindo(a) ao meu portfólio! Este site foi criado para apresentar minhas habilidades como **Desenvolvedora Full-Stack** e **Engenheira de Software**, além de reunir meus projetos, experiências e formas de contato.
+## 🧠 Sobre o Projeto
 
----
+O objetivo é oferecer uma vitrine digital para mostrar quem sou, o que faço e como posso ajudar empresas e pessoas a construírem soluções incríveis com tecnologia.
 
-## 🚀 Sobre o Projeto
+## 🚀 Funcionalidades
 
-Este é um projeto pessoal desenvolvido com **HTML**, **CSS** e **JavaScript**, com layout moderno, animações suaves e visual tech inspirado em linhas de código. Criado para destacar minha presença profissional online de forma criativa, responsiva e funcional.
+- Design moderno e escuro com destaque em neon
+- Menu lateral com navegação suave entre seções
+- Seções: Início, Sobre Mim, Site ou App?, Portfólio, Habilidades e Contato
+- Responsivo (funciona bem em celulares e tablets)
+- Botão de chat flutuante
+- Modal de formulário de contato (interativo)
 
----
+## 🛠️ Tecnologias Utilizadas
 
-## ✨ Funcionalidades
+- HTML5
+- CSS3
+- JavaScript
+- Fontes do Google Fonts
+- Ícones do Font Awesome
 
-- Interface moderna com fundo estilo matrix binária
-- Menu lateral interativo e responsivo
-- Seções com rolagem suave: Início, Sobre Mim, Portfólio, Habilidades e Contato
-- Animações em CSS
-- Botão de voltar ao topo
-- Modais de contato com formulário funcional
-- Links diretos para redes sociais
+## 📷 Imagens do Projeto
 
----
-
-## 🌐 Acesse o Site
-
-📍 [www.carolribeiros.com.br](https://www.carolribeiros.com.br)
-
----
-
-## 👩‍💻 Tecnologias Utilizadas
-
-- `HTML5`
-- `CSS3`
-- `JavaScript (ES6+)`
-- `Google Fonts` (Orbitron e Montserrat)
-- `Git e GitHub`
-- `Vercel` (Deploy e hospedagem)
-
----
-
-## 🖼️ Imagens do Projeto
-
-### Página Inicial
+### Página Inicial  
 ![Página Inicial](./assets/home-preview.png)
 
-### Menu Lateral Aberto
+### Menu Lateral Aberto  
 ![Menu Lateral](./assets/menu-preview.png)
 
----
+### Banner do Site  
+![Banner](./assets/banner.png)
 
-## 🛠️ Como Executar Localmente
-
-1. Clone o repositório:
-    git clone https://github.com/CarolRibeiro/seu-repositorio.git
-
-2. Acesse o diretório do projeto:
-    cd seu-repositorio
-
-3. Abra o arquivo index.html no navegador:
-    No VS Code, clique com o botão direito em index.html > Open with Live Server
-    Ou apenas dê um duplo clique no arquivo para abrir no navegador
-
-📁 Organização de Pastas
-
-📦 projeto/
-├── assets/              # Imagens usadas no site
+## 📁 Estrutura do Projeto
+MEU-PRIMEIRO-SITE/
+├── assets/
+│ ├── banner.png
+│ ├── home-preview.png
+│ └── menu-preview.png
 ├── css/
-│   └── style.css        # Estilo do site
+│ └── style.css
 ├── js/
-│   └── script.js        # Scripts do site
-├── index.html           # Página principal
-└── README.md            # Arquivo de documentação
+│ └── script.js
+└── index.html
 
-📝 Licença
-Este projeto está sob a licença MIT — isso significa que você pode usar, modificar e distribuir à vontade, desde que mantenha os devidos créditos.
+## 🔗 Acesse o site publicado
 
-📬 Contato
-Entre em contato comigo pelas redes sociais:
+[Acesse aqui](https://carolribeiros.com.br)
 
-📧 Email: anacarolina.ribeiro.s@gmail.com
-🔗 LinkedIn
-🐙 GitHub
-📸 Instagram
+## 🧑‍💻 Desenvolvido por
 
-✨ Obrigada por visitar meu portfólio!
+**Carol Ribeiro** – Desenvolvedora Full Stack  
+[LinkedIn](https://www.linkedin.com/in/carolribeirodev) | [GitHub](https://github.com/CarolRibeiro)
+
+## 📝 Licença
+
+Este projeto está sob a licença [MIT](https://choosealicense.com/licenses/mit/).  
+Você pode usar, modificar e distribuir com liberdade, desde que mantenha os créditos ao autor.
+
+---
