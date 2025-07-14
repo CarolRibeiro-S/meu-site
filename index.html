@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt; Carol Ribeiro/&gt; - Portfólio </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+/* Estilos Globais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+#code-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Cabeçalho */
+/* Removido */
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    left: -200px; /* Esconde o menu completamente */
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(10px);
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 999;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar.active {
+    left: 0; /* Mostra o menu quando ativo */
+}
+
+#sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px; /* Posição na borda direita do sidebar */
+    width: 5px; /* Espessura da linha */
+    height: 100%;
+    background: linear-gradient(to bottom, #00aaff, #00f2ff); /* Gradiente sutil para o brilho */
+    opacity: 0.2; /* Sutil quando recolhido */
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0); /* Sem brilho inicial */
+}
+
+#sidebar.active::before {
+    opacity: 1; /* Mais visível quando ativo */
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.8); /* Brilho sutil quando ativo */
+}
+
+#sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px 0;
+    border: 1px solid rgba(0, 119, 181, 0.3); /* Cor #0077B5 com transparência */
+    border-left: none;
+    border-right: none;
+    border-radius: 5px;
+}
+
+#sidebar nav ul li a:hover,
+#sidebar nav ul li a.active {
+    background: linear-gradient(to right, #0077B5, #00aaff, #00f2ff); /* Gradiente de azul */
+    color: #1a1a1a; /* Cor do texto para contrastar com o gradiente */
+    border-color: #00aaff; /* Ajusta a cor da borda para combinar */
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7em;
+    color: #888;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Ícone Hamburger */
+#hamburger-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #00aaff;
+    transition: all 0.3s ease;
+}
+
+#hamburger-icon.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+#hamburger-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger-icon.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Botão Voltar ao Topo */
+#scroll-to-top {
+    position: fixed;
+    bottom: 90px; /* Acima do ícone de chat */
+    right: 25px;
+    background: linear-gradient(45deg, #0077B5, #00aaff, #00f2ff); /* Gradiente de azul */
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.8); /* Neon effect */
+    z-index: 998;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
+    opacity: 0;
+    visibility: hidden;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-5px);
+}
+
+#scroll-to-top:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 1); /* More intense neon on hover */
+}
+
+/* Seções com Efeito de Painel */
+section {
+    padding: 60px 20px;
+    margin: 40px auto;
+    background-color: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+main {
+    margin-left: 20px; /* Espaço para o menu recolhido */
+    transition: margin-left 0.3s ease;
+}
+
+#sidebar.active + main {
+    margin-left: 200px; /* Espaço para o menu expandido */
+}
+
+section h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #2d97b8;
+}
+
+/* Destaque na Seção Inicial */
+#inicio {
+    background: none;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    text-align: center;
+    padding: 20px 0; /* Ajustado para subir ainda mais */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inicio-box {
+    display: inline-block;
+    padding: 40px 60px;
+    border: 1px solid rgba(0, 170, 255, 0.5); /* Borda mais visível e azulada */
+    border-radius: 15px;
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0, 170, 255, 0.3); /* Sombreado mais intenso e azulado */
+}
+
+#inicio h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4em;
+    margin: 0;
+    color: #fff;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #3c7d8d, #7bb676, #2d97b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+#inicio p {
+    font-size: 1.5em;
+    color: #ccc;
+}
+
+/* Projetos */
+.projeto {
+    background-color: rgba(44, 44, 44, 0.8);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.projeto h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 0;
+    color: #00aaff;
+}
+
+/* Habilidades */
+#portfolio p {
+    text-align: center;
+}
+
+.portfolio-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(44, 44, 44, 0.8);
+    padding: 20px 40px;
+    margin: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-link:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px 0 rgba(0, 170, 255, 0.6);
+}
+
+.portfolio-link i {
+    font-size: 2.5em;
+    margin-right: 15px;
+}
+
+.portfolio-link span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.habilidades-logos {
+    text-align: center;
+}
+
+.habilidades-logos i {
+    font-size: 4em;
+    margin: 0 20px;
+    transition: transform 0.3s ease;
+}
+
+.habilidades-logos i:hover {
+    transform: scale(1.2);
+}
+
+/* Contato */
+#contato {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+#contato .container {
+    text-align: center;
+}
+
+.btn-contato {
+    background-color: #00aaff;
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 0.9em;
+}
+
+.btn-contato:hover {
+    background-color: #0088cc;
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #1c1c1c;
+    margin: 10% auto; 
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.closeBtn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Formulário */
+#contactForm input, 
+#contactForm select, 
+#contactForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #f0f0f0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#contactForm button {
+    width: 100%;
+}
+
+/* Rodapé */
+footer {
+    background-color: transparent;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #888;
+}
+
+/* Ícone de Chat */
+#chat-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(45deg, #00e676, #00c853);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 64, 0.8);
+    z-index: 999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#chat-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 64, 1);
+}
+    </style>
+</head>
+<body>
+    <canvas id="code-background"></canvas>
+
+    <div id="hamburger-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#importancia">Site ou App?</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2025 Carol Ribeiro</p>
+        </div>
+    </div>
+
+    <main>
+        <section id="inicio">
+            <div class="inicio-box">
+                <h1><span class="gradient-text">&lt;Carol Ribeiro/&gt;</span></h1>
+                <p><span class="gradient-text"> | Developer Full-Stack | Software Engineer |</p>
+            </div>
+        </section>
+
+        <section id="sobre" class="hidden" style="padding: 30px 20px;">
+            <div class="container">
+                <h2>Sobre Mim</h2>
+                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">Olá!</p>
+                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">Sou Carol Ribeiro, uma desenvolvedora com foco em criar soluções inovadoras e eficientes. Tenho experiência em diversas tecnologias e estou sempre em busca de novos desafios para aprimorar minhas habilidades.</p> 
+            </div>
+        </section>
+
+        <section id="importancia" class="hidden" style="padding: 30px 20px;">
+            <div class="container">
+                <h2>Já se perguntou qual a importância de ter seu próprio site ou aplicativo?</h2>
+                <p style="font-size: 1.4em; letter-spacing: 2px; word-spacing: 1px; text-align: justify;">Ter um site ou aplicativo próprio hoje em dia é como ter um cartão de visitas com superpoderes. Ele funciona 24 horas por dia, não tira férias, não dorme e está sempre pronto pra mostrar ao mundo quem você é, o que você faz e por que seu trabalho é incrível.</p>
+                <p style="font-size: 1.4em; letter-spacing: 2px; word-spacing: 1px; text-align: justify;">É mais do que presença digital — é autoridade. É mostrar profissionalismo, confiança e personalidade num único clique. Enquanto você dorme, seu site pode estar fechando negócios, conquistando clientes e espalhando sua marca por aí.</p>
+                <p style="font-size: 1.4em; letter-spacing: 2px; word-spacing: 1px; text-align: justify;">E sabe o melhor? Ele pode ser do jeitinho que você quiser: moderno, criativo, funcional, com a sua cara e feito sob medida. Aqui, a ideia vira projeto, e o projeto vira realidade.</p>
+                <p class="gradient-text-blue" style="font-size: 1.4em; letter-spacing: 2px; word-spacing: 1px; text-align: center; font-weight: bold;">Invista em sua presença digital e colha os frutos de uma carreira de sucesso!</p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="hidden">
+            <div class="container">
+                <h2>Portfólio</h2>
+                <p style="font-size: 1.4em; letter-spacing: 0.5px; word-spacing: 1px;">Explore meus perfis profissionais para ver meus projetos e minha trajetória.</p>
+                <div class="portfolio-links">
+                    <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="portfolio-link">
+                        <i class="devicon-linkedin-plain colored"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/CarolRibeiro-S" target="_blank" class="portfolio-link">
+                        <i class="devicon-github-original colored"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="habilidades" class="hidden" style="padding: 30px 20px;">
+            <div class="container">
+                <h2>Habilidades</h2>
+                <div class="habilidades-logos">
+                    <i class="devicon-html5-plain-wordmark colored"></i>
+                    <i class="devicon-css3-plain-wordmark colored"></i>
+                    <i class="devicon-javascript-plain colored"></i>
+                    <i class="devicon-react-original-wordmark colored"></i>
+                    <i class="devicon-nodejs-plain-wordmark colored"></i>
+                    <i class="devicon-python-plain-wordmark colored"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="hidden">
+            <div class="container">
+                <h2>Contato</h2>
+                <p style="margin-bottom: 20px; font-size: 1.4em;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
+                <button id="openModalBtn" class="btn-contato">Entre em Contato</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <h3>Solicite um Orçamento</h3>
+            <form id="contactForm" action="https://formspree.io/f/anacarolina.ribeiro.s@gmail.com" method="POST">
+                <input type="text" name="nome" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu E-mail" required>
+                <input type="tel" name="telefone" placeholder="Seu Telefone">
+                <select name="demanda" required>
+                    <option value="" disabled selected>Selecione o tipo de demanda</option>
+                    <option value="criacao-site">Criação de Site</option>
+                    <option value="criacao-app">Criação de Aplicativo</option>
+                    <option value="debugging">Debugging</option>
+                    <option value="teste">Teste de Software</option>
+                    <option value="outros-assuntos">Outros Assuntos</option>
+                </select>
+                <textarea name="mensagem" placeholder="Descreva seu projeto..." rows="4"></textarea>
+                <button type="submit" class="btn-contato">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Carol Ribeiro. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="chat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </div>
+
+    <div id="scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </div>
+
+    <script>
+        
+
+        document.querySelectorAll('#sidebar nav ul li a').forEach(anchor => {
+            anchor.addEventListener('mouseenter', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+
+            anchor.addEventListener('mouseleave', function () {
+                this.classList.remove('active');
+                highlightActiveLink(); // Re-evaluate active link based on scroll position
+            });
+        });
+const modal = document.getElementById("contactModal");
+const openModalBtn = document.getElementById("openModalBtn");
+const chatIcon = document.getElementById("chat-icon");
+const closeBtn = document.getElementsByClassName("closeBtn")[0];
+
+const openModal = function() {
+    modal.style.display = "block";
+}
+
+openModalBtn.onclick = openModal;
+chatIcon.onclick = openModal;
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Simulação de envio de formulário (mantida)
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    // O Formspree cuidará do envio, então não precisamos mais da simulação.
+});
+
+// Fundo de Código Fluindo Horizontalmente (mantido)
+const codeCanvas = document.getElementById('code-background');
+const codeCtx = codeCanvas.getContext('2d');
+
+codeCanvas.width = window.innerWidth;
+codeCanvas.height = window.innerHeight;
+
+const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>/?';
+const fontSize = 16;
+const rows = codeCanvas.height / fontSize;
+
+const drops = [];
+for (let i = 0; i < rows; i++) {
+    drops[i] = Math.random() * codeCanvas.width / fontSize;
+}
+
+function drawCodeBackground() {
+    codeCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    codeCtx.fillRect(0, 0, codeCanvas.width, codeCanvas.height);
+
+    codeCtx.fillStyle = '#00aaff';
+    codeCtx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(Math.floor(Math.random() * characters.length));
+        codeCtx.fillText(text, drops[i] * fontSize, i * fontSize);
+
+        if (drops[i] * fontSize > codeCanvas.width && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
+}
+
+setInterval(drawCodeBackground, 33);
+
+window.addEventListener('resize', () => {
+    codeCanvas.width = window.innerWidth;
+    codeCanvas.height = window.innerHeight;
+    const newRows = codeCanvas.height / fontSize;
+    drops.length = newRows;
+    for (let i = 0; i < newRows; i++) {
+        if (drops[i] === undefined) {
+            drops[i] = Math.random() * codeCanvas.width / fontSize;
+        }
+    }
+});
+
+// Lógica do Hamburger e Sidebar
+const hamburgerIcon = document.getElementById('hamburger-icon');
+const sidebar = document.getElementById('sidebar');
+
+hamburgerIcon.addEventListener('mouseenter', () => {
+    sidebar.classList.add('active');
+    hamburgerIcon.classList.add('active');
+});
+
+sidebar.addEventListener('mouseleave', () => {
+    sidebar.classList.remove('active');
+    hamburgerIcon.classList.remove('active');
+});
+
+
+
+// Lógica de Destaque da Seção Ativa
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('#sidebar nav ul li a');
+
+navLinks.forEach(anchor => {
+    anchor.addEventListener('mouseenter', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+    });
+
+    anchor.addEventListener('mouseleave', function () {
+        this.classList.remove('active');
+        highlightActiveLink(); // Re-evaluate active link based on scroll position
+    });
+});
+
+const highlightActiveLink = () => {
+    let current = '';
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const sectionBottom = sectionTop + sectionHeight;
+
+        // Check if the current scroll position is within the section
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+};
+
+window.addEventListener('scroll', highlightActiveLink);
+window.addEventListener('load', highlightActiveLink); // Para destacar a seção inicial ao carregar
+
+// Lógica do Botão Voltar ao Topo
+const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) { // Mostra o botão após rolar 300px
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+    </script>
+</body>
+</html>

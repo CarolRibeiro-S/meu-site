@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+/* Estilos Globais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+#code-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Cabeçalho */
+/* Removido */
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    left: -120px; /* Esconde o menu completamente */
+    top: 0;
+    width: 120px;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(10px);
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 999;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: scroll; /* Adiciona rolagem vertical se o conteúdo exceder a altura */
+}
+
+#sidebar.active {
+    left: 0; /* Mostra o menu quando ativo */
+}
+
+#sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px; /* Posição na borda direita do sidebar */
+    width: 5px; /* Espessura da linha */
+    height: 100%;
+    background: linear-gradient(to bottom, #00aaff, #00f2ff); /* Gradiente sutil para o brilho */
+    opacity: 0.2; /* Sutil quando recolhido */
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0); /* Sem brilho inicial */
+}
+
+#sidebar.active::before {
+    opacity: 1; /* Mais visível quando ativo */
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.8); /* Brilho sutil quando ativo */
+}
+
+#sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar nav ul li a {
+    display: block;
+    padding: 5px 8px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 2px 0;
+    border: 0.5px solid rgba(0, 119, 181, 0.3); /* Cor #0077B5 com transparência */
+    border-left: none;
+    border-right: none;
+    border-radius: 5px;
+}
+
+#sidebar nav ul li a:hover,
+#sidebar nav ul li a.active {
+    background-color: #0077B5; /* Cor sólida para o hover/active */
+    color: #1a1a1a; /* Cor do texto para contrastar */
+    border-color: #00aaff; /* Ajusta a cor da borda para combinar */
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7em;
+    color: #888;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Ícone Hamburger */
+#hamburger-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #00aaff;
+    transition: all 0.3s ease;
+}
+
+#hamburger-icon.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+#hamburger-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger-icon.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Botão Voltar ao Topo */
+#scroll-to-top {
+    position: fixed;
+    bottom: 70px; /* Acima do ícone de chat */
+    right: 25px;
+    background-color: rgba(0, 170, 255, 0.4);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
+    z-index: 998;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-5px);
+}
+
+#scroll-to-top:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* Seções com Efeito de Painel */
+section {
+    padding: 60px 20px;
+    margin: 40px auto;
+    max-width: 568px; /* Reduzido para deixar as caixas mais estreitas */
+    background-color: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 170, 255, 0.25);
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+main {
+    margin-left: 20px; /* Espaço para o menu recolhido */
+    transition: margin-left 0.3s ease;
+}
+
+#sidebar.active + main {
+    margin-left: 120px; /* Espaço para o menu expandido */
+}
+
+section h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #2d97b8;
+}
+
+/* Destaque na Seção Inicial */
+#inicio {
+    background: none;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    text-align: center;
+    padding: 20px 0; /* Ajustado para subir ainda mais */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inicio-box {
+    display: inline-block;
+    padding: 40px 60px;
+    border: 1px solid rgba(0, 170, 255, 0.5); /* Borda mais visível e azulada */
+    border-radius: 15px;
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0, 170, 255, 0.3); /* Sombreado mais intenso e azulado */
+}
+
+#inicio h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4em;
+    margin: 0;
+    color: #fff;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #3c7d8d, #7bb676, #2d97b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.gradient-text-blue {
+    background: linear-gradient(45deg, #0077B5, #00aaff, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+#inicio p {
+    font-size: 1.5em;
+    color: #ccc;
+}
+
+/* Projetos */
+.projeto {
+    background-color: rgba(44, 44, 44, 0.8);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 170, 255, 0.2);
+}
+
+.projeto h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 0;
+    color: #00aaff;
+}
+
+/* Habilidades */
+.portfolio-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(44, 44, 44, 0.8);
+    padding: 20px 40px;
+    margin: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.portfolio-link i {
+    font-size: 2.5em;
+    margin-right: 15px;
+}
+
+.portfolio-link span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.habilidades-logos {
+    text-align: center;
+}
+
+.habilidades-logos i {
+    font-size: 4em;
+    margin: 0 10px; /* Reduced horizontal margin for better spacing on smaller screens */
+    transition: transform 0.3s ease;
+}
+
+.habilidades-logos i:hover {
+    transform: scale(1.2);
+}
+
+/* Contato */
+#contato {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 568px;
+    margin: 40px auto;
+}
+
+.btn-contato {
+    background-color: #00aaff;
+    color: #1a1a1a;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1em;
+}
+
+.btn-contato:hover {
+    background-color: #0088cc;
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #1c1c1c;
+    margin: 10% auto; 
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 170, 255, 0.15);
+}
+
+.closeBtn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Formulário */
+#contactForm input, 
+#contactForm select, 
+#contactForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #f0f0f0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#contactForm button {
+    width: 100%;
+}
+
+/* Rodapé */
+footer {
+    background-color: transparent;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #888;
+}
+
+/* Ícone de Chat */
+#chat-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: rgba(0, 170, 255, 0.7);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+#chat-icon:hover {
+    transform: scale(1.1);
+}
