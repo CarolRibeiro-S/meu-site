@@ -36,6 +36,7 @@ O objetivo é oferecer uma vitrine digital para mostrar quem sou, o que faço e 
 
 ## 📁 Estrutura do Projeto
 MEU-PRIMEIRO-SITE/
+
 ├── assets/
 │ ├── banner.png
 │ ├── home-preview.png
