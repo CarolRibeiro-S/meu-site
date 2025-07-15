@@ -41,6 +41,32 @@ window.onclick = function(event) {
 
 
 document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const action = form.action;
+    fetch(action, {
+        method: 'POST',
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            form.style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        } else {
+            response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                    alert(data["errors"].map(error => error["message"]).join(", "))
+                } else {
+                    alert('Oops! There was a problem submitting your form')
+                }
+            })
+        }
+    }).catch(error => {
+        alert('Oops! There was a problem submitting your form')
+    });
 });
 
 
