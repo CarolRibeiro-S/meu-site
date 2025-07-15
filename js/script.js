@@ -16,7 +16,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Lógica do Modal (mantida)
+
 const modal = document.getElementById("contactModal");
 const openModalBtn = document.getElementById("openModalBtn");
 const chatIcon = document.getElementById("chat-icon");
@@ -39,12 +39,11 @@ window.onclick = function(event) {
     }
 }
 
-// Simulação de envio de formulário (mantida)
+
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-    // O Formspree cuidará do envio, então não precisamos mais da simulação.
 });
 
-// Fundo de Código Fluindo Horizontalmente (mantido)
+
 const codeCanvas = document.getElementById('code-background');
 const codeCtx = codeCanvas.getContext('2d');
 
