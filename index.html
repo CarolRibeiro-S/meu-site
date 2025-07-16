@@ -739,17 +739,20 @@ window.addEventListener('resize', () => {
 
 // Lógica do Hamburger e Sidebar
 const hamburgerIcon = document.getElementById('hamburger-icon');
-const sidebar = document.getElementById('sidebar');
+  const sidebar = document.getElementById('sidebar');
 
-hamburgerIcon.addEventListener('mouseenter', () => {
-    sidebar.classList.add('active');
-    hamburgerIcon.classList.add('active');
-});
+  hamburgerIcon.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    hamburgerIcon.classList.toggle('active');
+  });
 
-sidebar.addEventListener('mouseleave', () => {
-    sidebar.classList.remove('active');
-    hamburgerIcon.classList.remove('active');
-});
+  // Fechar menu se clicar em algum link do menu (opcional)
+  document.querySelectorAll('#sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      hamburgerIcon.classList.remove('active');
+    });
+  });
 
 
 
