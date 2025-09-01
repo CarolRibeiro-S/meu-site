@@ -727,7 +727,7 @@ body.light-mode .habilidade-item h3 {
 ========================= */
 #contato {
   padding: 60px 20px;
-  max-width: 568px;
+  max-width: 800px;
   margin: 40px auto;
 }
 
@@ -1237,10 +1237,26 @@ body.light-mode .checkmark-icon::before {
   }
 
   #contato {
-    padding: 60px 300px;
+    /* padding: 60px 300px; */
   }
 
   .modal-content {
     width: 500px;
+  }
+}
+
+.mobile-break {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  section#sobre p {
+    text-align: left;
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
+  .mobile-break {
+    display: inline;
   }
 }
