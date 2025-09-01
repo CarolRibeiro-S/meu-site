@@ -650,8 +650,8 @@ body.light-mode .checkmark-icon::before{ color:#000000; }
 }
 
 /* =========================
-   MOBILE FIRST FIXES
-   (cola no final do css)
+   MOBILE FIRST FIXES (consolidado)
+   — cole do jeito que está no final do seu CSS
 ========================= */
 
 /* evita scroll lateral por estourar largura */
@@ -680,7 +680,7 @@ section { padding: 48px 16px; }
 header nav ul {
   gap: 12px;
   flex-wrap: nowrap;
-  overflow-x: auto;     /* permite rolar o menu no mobile */
+  overflow-x: auto;            /* menu rolável no mobile */
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
 }
@@ -698,19 +698,13 @@ header nav ul li a { font-size: .95rem; }
     padding: 0;
     max-width: 720px;
   }
-  .service-card {
-    padding: 18px;
-    align-items: center;
-  }
+  .service-card { padding: 18px; align-items: center; }
   .service-title { font-size: 1.15rem; }
 }
 
-/* modais: caixa ocupa quase toda a largura e botão X maior */
+/* modais de serviços: caixa ocupa quase toda a largura e X maior */
 @media (max-width: 560px) {
-  .smodal-box {
-    width: 92vw;
-    padding: 22px 18px 18px;
-  }
+  .smodal-box { width: 92vw; padding: 22px 18px 18px; }
   .smodal-close { top: 6px; right: 8px; width: 36px; height: 36px; font-size: 26px; }
 }
 
@@ -724,17 +718,11 @@ header nav ul li a { font-size: .95rem; }
 
 /* ícones de habilidades: quebrar linha e reduzir tamanho no mobile */
 .habilidades-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
 }
-.habilidades-logos i {
-  font-size: clamp(2.2rem, 8vw, 3.2rem);
-  margin: 0;
-}
+.habilidades-logos i { font-size: clamp(2.2rem, 8vw, 3.2rem); margin: 0; }
 
-/* hard skills/cards genéricos (se houver) */
+/* grid genérico de skills (se houver) */
 .skills-grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -742,53 +730,43 @@ header nav ul li a { font-size: .95rem; }
 }
 .skill-card { min-height: 120px; }
 
-/* ajustar títulos para telas muito pequenas */
-@media (max-width: 400px)
-  section
-
-  /* ===== FIX 1: CONTATO (texto estreito no iOS + chat sobrepondo) ===== */
-#contato .container{
-  max-width: 640px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* títulos em telas muito pequenas */
+@media (max-width: 400px){
+  section h2 { font-size: 1.8rem; }
+  section h3 { margin-top: -8px; font-size: .95rem; }
 }
 
-#contato p{
-  display: block;
-  max-width: 32rem;           /* largura confortável de leitura */
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  text-align: center;
-  white-space: normal !important;
-  word-break: normal !important;
-  overflow-wrap: break-word;  /* evita estouro */
-  -webkit-hyphens: auto;
-  hyphens: auto;
-  writing-mode: horizontal-tb !important; /* garante horizontal no iOS */
+/* ===== CONTATO — 1 coluna + texto normal no iOS e não sobrepor chat ===== */
+@media (max-width: 820px){
+  #contato { padding: 48px 16px; }
+  #contato .container{
+    display: block !important;
+    max-width: 680px; margin: 0 auto; padding: 0;
+  }
+  #contato h2, #contato p, #contato .btn-contato{
+    position: static !important; float: none !important; width: 100% !important;
+    margin-left: auto; margin-right: auto;
+  }
+  #contato p{
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    -webkit-hyphens: auto; hyphens: auto;
+    line-height: 1.6;
+    font-size: clamp(1rem, 3.8vw, 1.2rem);
+    max-width: 34ch;                 /* largura confortável de leitura */
+  }
 }
-
-/* evita que o chat cubra o botão */
 @media (max-width: 560px){
-  #contato{ padding-bottom: 120px; }
+  #contato{ padding-bottom: 120px; } /* espaço pro ícone de chat */
   #chat-icon{ right: 12px; bottom: 12px; }
 }
 
-/* ===== FIX 2: HABILIDADES (forçar 1 coluna no mobile) ===== */
-/* Se a sua seção usa grid/flex, normalizamos aqui. Ajusta só dentro de #habilidades. */
-#habilidades .grid,
-#habilidades .grid-2,
-#habilidades .cards,
-#habilidades .cards-2,
-#habilidades .habilidades-grid,
-#habilidades .skills-grid,
-#habilidades .row { gap: 16px; }
-
+/* ===== HABILIDADES — força 1 coluna no mobile (grid ou flex) ===== */
 @media (max-width: 820px){
-  /* grids: vira 1 coluna */
+  #habilidades .row,
+  #habilidades .columns,
   #habilidades .grid,
   #habilidades .grid-2,
   #habilidades .cards,
@@ -797,18 +775,23 @@ header nav ul li a { font-size: .95rem; }
   #habilidades .skills-grid{
     display: grid !important;
     grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
-
-  /* caso tenha sido feito com flex */
-  #habilidades .row,
-  #habilidades .flex,
-  #habilidades .flex-row{
+  #habilidades .flex, #habilidades .flex-row{
     display: flex !important;
     flex-direction: column !important;
+    gap: 16px !important;
   }
-}
-
-/* título “Hard Skills” com respiro no mobile */
-@media (max-width: 400px){
-  #habilidades h2{ padding: 0 12px; }
+  #habilidades .row > *,
+  #habilidades .columns > *,
+  #habilidades .grid > *,
+  #habilidades .grid-2 > *,
+  #habilidades .cards > *,
+  #habilidades .cards-2 > *,
+  #habilidades .habilidades-grid > *,
+  #habilidades .skills-grid > *,
+  #habilidades .flex > *,
+  #habilidades .flex-row > *{
+    width: 100% !important;
+  }
 }
