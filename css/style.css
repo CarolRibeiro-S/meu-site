@@ -724,3 +724,71 @@ body.light-mode .checkmark-icon::before{ color:#000000; }
     display: block !important;
   }
 }
+/* =========================
+   MOBILE NAV + CARDS (SOBRE/HABILIDADES)
+   — cola no final do CSS
+========================= */
+
+/* 1) MENU MOBILE: mostra TODAS as opções */
+@media (max-width: 920px){
+  .main-header{ padding: 10px 12px; gap: 10px; }
+  .logo{ font-size: 1.6rem; }
+
+  /* o nav vira “carrossel” horizontal (rolável) */
+  header nav{ overflow: visible; }
+  header nav ul{
+    display: flex;
+    gap: 14px;
+    margin: 0;
+    padding: 6px 8px 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;    /* firefox */
+  }
+  header nav ul::-webkit-scrollbar{ display:none; } /* chrome/safari */
+  header nav ul li{ margin: 0; }
+  header nav ul li a{
+    font-size: .95rem;
+    padding: 6px 2px;
+  }
+}
+
+/* fallback: se preferir quebrar em 2 linhas quando a tela é MUITO estreita */
+@media (max-width: 420px){
+  header nav ul{
+    white-space: normal;     /* permite quebra */
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 6px;
+  }
+}
+
+/* 2) “QUADRADOS” (cards) do SOBRE e HABILIDADES: 1 coluna no mobile */
+@media (max-width: 920px){
+  /* normaliza qualquer container usado nesses blocos */
+  #sobre .row, #sobre .grid, #sobre .grid-2, #sobre .cards, #sobre .flex, #sobre .flex-row,
+  #habilidades .row, #habilidades .grid, #habilidades .grid-2, #habilidades .cards, #habilidades .flex, #habilidades .flex-row,
+  #habilidades .habilidades-grid, #habilidades .skills-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* garante que cada “cartão/box” ocupe 100% */
+  #sobre .row > *, #sobre .grid > *, #sobre .grid-2 > *, #sobre .cards > *, #sobre .flex > *, #sobre .flex-row > *,
+  #habilidades .row > *, #habilidades .grid > *, #habilidades .grid-2 > *, #habilidades .cards > *, #habilidades .flex > *, #habilidades .flex-row > *,
+  #habilidades .habilidades-grid > *, #habilidades .skills-grid > *{
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  /* evita que bordas/raios “estourem” a tela */
+  #sobre *, #habilidades *{ box-sizing: border-box; }
+}
+
+/* 3) Título “Hard Skills” com respiro no mobile */
+@media (max-width: 420px){
+  #habilidades h2{ padding: 0 10px; }
+}
