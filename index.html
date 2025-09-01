@@ -18,7 +18,7 @@
   <header class="main-header">
     <div class="header-content">
       <div class="logo gradient-text">&lt;CR./&gt;</div>
-      <nav>
+      <nav class="main-nav">
         <ul>
           <li><a href="#inicio">Home</a></li>
           <li><a href="#sobre">Sobre</a></li>
@@ -28,6 +28,11 @@
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <div class="theme-switcher">
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"></circle>
@@ -264,7 +269,7 @@
     <section id="contato">
       <div class="container">
         <h2>Contato</h2>
-        <p style="margin-bottom: 20px; font-size: 1.4em;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
+        <p class="contact-text" style="margin-bottom: 20px; font-size: 1.4em;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
         <button id="openModalBtn" class="btn-contato">Entre em Contato</button>
       </div>
     </section>
@@ -316,5 +321,6 @@
   </div>
 
   <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
 </body>
 </html>
