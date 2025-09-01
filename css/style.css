@@ -745,3 +745,70 @@ header nav ul li a { font-size: .95rem; }
 /* ajustar títulos para telas muito pequenas */
 @media (max-width: 400px)
   section
+
+  /* ===== FIX 1: CONTATO (texto estreito no iOS + chat sobrepondo) ===== */
+#contato .container{
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contato p{
+  display: block;
+  max-width: 32rem;           /* largura confortável de leitura */
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word;  /* evita estouro */
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  writing-mode: horizontal-tb !important; /* garante horizontal no iOS */
+}
+
+/* evita que o chat cubra o botão */
+@media (max-width: 560px){
+  #contato{ padding-bottom: 120px; }
+  #chat-icon{ right: 12px; bottom: 12px; }
+}
+
+/* ===== FIX 2: HABILIDADES (forçar 1 coluna no mobile) ===== */
+/* Se a sua seção usa grid/flex, normalizamos aqui. Ajusta só dentro de #habilidades. */
+#habilidades .grid,
+#habilidades .grid-2,
+#habilidades .cards,
+#habilidades .cards-2,
+#habilidades .habilidades-grid,
+#habilidades .skills-grid,
+#habilidades .row { gap: 16px; }
+
+@media (max-width: 820px){
+  /* grids: vira 1 coluna */
+  #habilidades .grid,
+  #habilidades .grid-2,
+  #habilidades .cards,
+  #habilidades .cards-2,
+  #habilidades .habilidades-grid,
+  #habilidades .skills-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* caso tenha sido feito com flex */
+  #habilidades .row,
+  #habilidades .flex,
+  #habilidades .flex-row{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* título “Hard Skills” com respiro no mobile */
+@media (max-width: 400px){
+  #habilidades h2{ padding: 0 12px; }
+}
