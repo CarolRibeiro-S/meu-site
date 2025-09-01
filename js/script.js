@@ -1,21 +1,19 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-}, {
-    threshold: 0
-});
-
-        // Fechar o sidebar ao clicar em um link (se estiver aberto)
-        const sidebar = document.getElementById('sidebar');
-        if (sidebar.classList.contains('active')) {
-            sidebar.classList.remove('active');
+        const href = this.getAttribute('href');
+        // Check if the href is one of the service modals
+        if (href === '#s-uiux' || href === '#s-frontend' || href === '#s-backend') {
+            // Allow default behavior for service modals (CSS :target will handle it)
+            // No e.preventDefault() here
+        } else {
+            // For other internal links, prevent default and smooth scroll
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth'
+            });
         }
     });
 });
-
 
 const modal = document.getElementById("contactModal");
 const openModalBtn = document.getElementById("openModalBtn");
@@ -70,65 +68,11 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 });
 
 
-const codeCanvas = document.getElementById('code-background');
-const codeCtx = codeCanvas.getContext('2d');
 
-codeCanvas.width = window.innerWidth;
-codeCanvas.height = window.innerHeight;
-
-const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>/?';
-const fontSize = 16;
-const rows = codeCanvas.height / fontSize;
-
-const drops = [];
-for (let i = 0; i < rows; i++) {
-    drops[i] = Math.random() * codeCanvas.width / fontSize;
-}
-
-function drawCodeBackground() {
-    codeCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    codeCtx.fillRect(0, 0, codeCanvas.width, codeCanvas.height);
-
-    codeCtx.fillStyle = '#00aaff';
-    codeCtx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        codeCtx.fillText(text, drops[i] * fontSize, i * fontSize);
-
-        if (drops[i] * fontSize > codeCanvas.width && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
-}
-
-setInterval(drawCodeBackground, 33);
-
-window.addEventListener('resize', () => {
-    codeCanvas.width = window.innerWidth;
-    codeCanvas.height = window.innerHeight;
-    const newRows = codeCanvas.height / fontSize;
-    drops.length = newRows;
-    for (let i = 0; i < newRows; i++) {
-        if (drops[i] === undefined) {
-            drops[i] = Math.random() * codeCanvas.width / fontSize;
-        }
-    }
-});
-
-// Lógica do Hamburger e Sidebar
-const hamburgerIcon = document.getElementById('hamburger-icon');
-const sidebar = document.getElementById('sidebar');
-
-hamburgerIcon.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    hamburgerIcon.classList.toggle('active');
-});
 
 // Lógica de Destaque da Seção Ativa
 const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('#sidebar nav ul li a');
+const navLinks = document.querySelectorAll('header nav ul li a');
 
 const highlightActiveLink = () => {
     let current = '';
@@ -167,5 +111,31 @@ scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+});
+
+
+
+// Theme switcher
+const themeSwitcher = document.querySelector('.theme-switcher');
+
+themeSwitcher.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+});
+
+// Service Modals (JS closing)
+document.querySelectorAll('.smodal-close').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        window.location.hash = '#servicos'; // Go to #servicos section after closing the modal
+    });
+});
+
+// Close service modals when clicking outside the smodal-box
+document.querySelectorAll('.smodal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) { // Check if the click was directly on the modal overlay
+            window.location.hash = '#servicos'; // Go to #servicos section after closing the modal
+        }
     });
 });

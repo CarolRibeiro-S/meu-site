@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt; Carol Ribeiro/&gt; - Contato </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo gradient-text">&lt;CR./&gt;</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="importancia.html">Serviços</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="habilidades.html">Habilidades</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switcher">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <input type="checkbox" id="theme-toggle" class="sr-only">
+                <label for="theme-toggle" class="sr-only">Mudar tema</label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="contato">
+            <div class="container">
+                <h2>Contato</h2>
+                <p style="margin-bottom: 20px;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
+                <button id="openModalBtn" class="btn-contato">Entre em Contato</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <h3>Solicite um Orçamento</h3>
+            <form id="contactForm" action="https://formspree.io/f/mwpqkoeg" method="POST">
+                <input type="text" name="nome" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu E-mail" required>
+                <input type="tel" name="telefone" placeholder="Seu Telefone">
+                <select name="demanda" required>
+                    <option value="" disabled selected>Selecione o tipo de demanda</option>
+                    <option value="criacao-site">Criação de Site</option>
+                    <option value="criacao-app">Criação de Aplicativo</option>
+                    <option value="debugging">Debugging</option>
+                    <option value="teste">Teste de Software</option>
+                    <option value="outros-assuntos">Outros Assuntos</option>
+                </select>
+                <textarea name="mensagem" placeholder="Descreva seu projeto..." rows="4"></textarea>
+                <button type="submit" class="btn-contato">Enviar</button>
+                <p id="form-status" style="margin-top: 15px;"></p>
+            </form>
+            <div id="successMessage" style="display: none; text-align: center;">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+                <p>Carol Ribeiro, agradeçe seu contato</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Carol Ribeiro. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

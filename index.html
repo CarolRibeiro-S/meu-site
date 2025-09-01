@@ -1,824 +1,320 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&lt; Carol Ribeiro/&gt; - Portfólio </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt; Carol Ribeiro/&gt; - Portfólio</title>
 
-/* Estilos Globais */
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #000;
-    color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
+  <!-- Ícones Devicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css">
 
-#code-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: #000;
-}
+  <!-- Fonte (mova para o <head> em vez de deixar no body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-/* Cabeçalho */
-/* Removido */
-
-/* Sidebar */
-#sidebar {
-    position: fixed;
-    left: -200px; /* Esconde o menu completamente */
-    top: 0;
-    width: 200px;
-    height: 100%;
-    background-color: rgba(17, 17, 17, 0.95);
-    backdrop-filter: blur(10px);
-    padding-top: 80px;
-    transition: left 0.3s ease;
-    z-index: 999;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#sidebar.active {
-    left: 0; /* Mostra o menu quando ativo */
-}
-
-#sidebar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -5px; /* Posição na borda direita do sidebar */
-    width: 5px; /* Espessura da linha */
-    height: 100%;
-    background: linear-gradient(to bottom, #00aaff, #00f2ff); /* Gradiente sutil para o brilho */
-    opacity: 0.2; /* Sutil quando recolhido */
-    transition: opacity 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 170, 255, 0); /* Sem brilho inicial */
-}
-
-#sidebar.active::before {
-    opacity: 1; /* Mais visível quando ativo */
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.8); /* Brilho sutil quando ativo */
-}
-
-#sidebar nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#sidebar nav ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: #f0f0f0;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin: 5px 0;
-    border: 1px solid rgba(0, 119, 181, 0.3); /* Cor #0077B5 com transparência */
-    border-left: none;
-    border-right: none;
-    border-radius: 5px;
-}
-
-#sidebar nav ul li a:hover,
-#sidebar nav ul li a.active {
-    background: linear-gradient(to right, #0077B5, #00aaff, #00f2ff); /* Gradiente de azul */
-    color: #1a1a1a; /* Cor do texto para contrastar com o gradiente */
-    border-color: #00aaff; /* Ajusta a cor da borda para combinar */
-}
-
-.sidebar-footer {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 0.7em;
-    color: #888;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-/* Ícone Hamburger */
-#hamburger-icon {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-#hamburger-icon .bar {
-    width: 100%;
-    height: 3px;
-    background-color: #00aaff;
-    transition: all 0.3s ease;
-}
-
-#hamburger-icon.active .bar:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-}
-
-#hamburger-icon.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-#hamburger-icon.active .bar:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-}
-
-/* Botão Voltar ao Topo */
-#scroll-to-top {
-    position: fixed;
-    bottom: 90px; /* Acima do ícone de chat */
-    right: 25px;
-    background: linear-gradient(45deg, #0077B5, #00aaff, #00f2ff); /* Gradiente de azul */
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.8); /* Neon effect */
-    z-index: 998;
-    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
-    opacity: 0;
-    visibility: hidden;
-}
-
-#scroll-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(-5px);
-}
-
-#scroll-to-top:hover {
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 170, 255, 1); /* More intense neon on hover */
-}
-
-/* Seções com Efeito de Painel */
-section {
-    padding: 60px 20px;
-    margin: 40px auto;
-    background-color: rgba(26, 26, 26, 0.7);
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-main {
-    margin-left: 20px; /* Espaço para o menu recolhido */
-    transition: margin-left 0.3s ease;
-}
-
-#sidebar.active + main {
-    margin-left: 200px; /* Espaço para o menu expandido */
-}
-
-section h2 {
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    color: #2d97b8;
-}
-
-/* Destaque na Seção Inicial */
-#inicio {
-    background: none;
-    box-shadow: none;
-    border: none;
-    backdrop-filter: none;
-    text-align: center;
-    padding: 20px 0; /* Ajustado para subir ainda mais */
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.inicio-box {
-    display: inline-block;
-    padding: 40px 60px;
-    border: 1px solid rgba(0, 170, 255, 0.5); /* Borda mais visível e azulada */
-    border-radius: 15px;
-    background-color: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 40px rgba(0, 170, 255, 0.3); /* Sombreado mais intenso e azulado */
-}
-
-#inicio h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4em;
-    margin: 0;
-    color: #fff;
-}
-
-.gradient-text {
-    background: linear-gradient(45deg, #3c7d8d, #7bb676, #2d97b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-#inicio p {
-    font-size: 1.5em;
-    color: #ccc;
-}
-
-/* Projetos */
-.projeto {
-    background-color: rgba(44, 44, 44, 0.8);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.projeto:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
-}
-
-.projeto h3 {
-    font-family: 'Orbitron', sans-serif;
-    margin-top: 0;
-    color: #00aaff;
-}
-
-/* Habilidades */
-#portfolio p {
-    text-align: center;
-}
-
-.portfolio-links {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.portfolio-link {
-    display: inline-flex;
-    align-items: center;
-    background-color: rgba(44, 44, 44, 0.8);
-    padding: 20px 40px;
-    margin: 10px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #f0f0f0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.portfolio-link:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px 0 rgba(0, 170, 255, 0.6);
-}
-
-.portfolio-link i {
-    font-size: 2.5em;
-    margin-right: 15px;
-}
-
-.portfolio-link span {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.habilidades-logos {
-    text-align: center;
-}
-
-.habilidades-logos i {
-    font-size: 4em;
-    margin: 0 20px;
-    transition: transform 0.3s ease;
-}
-
-.habilidades-logos i:hover {
-    transform: scale(1.2);
-}
-
-/* Contato */
-#contato {
-    text-align: center;
-    padding: 30px 20px;
-}
-
-#contato .container {
-    text-align: center;
-}
-
-.btn-contato {
-    background-color: #00aaff;
-    color: #1a1a1a;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 0.9em;
-}
-
-.btn-contato:hover {
-    background-color: #0088cc;
-    transform: scale(1.05);
-}
-
-/* Modal */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1001; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    background-color: #1c1c1c;
-    margin: 10% auto; 
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 80%;
-    max-width: 500px;
-    border-radius: 15px;
-    position: relative;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-.closeBtn {
-    color: #aaa;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.closeBtn:hover,
-.closeBtn:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Formulário */
-#contactForm input, 
-#contactForm select, 
-#contactForm textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #555;
-    background-color: #222;
-    color: #f0f0f0;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#contactForm button {
-    width: 100%;
-}
-
-/* Rodapé */
-footer {
-    background-color: transparent;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-    color: #888;
-}
-
-/* Ícone de Chat */
-#chat-icon {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(45deg, #00e676, #00c853);
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 255, 64, 0.8);
-    z-index: 999;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-
-#chat-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(0, 255, 64, 1);
-}
-
-/* Estilos da Mensagem de Sucesso */
-#successMessage {
-    color: #7bb676; /* Tom verde do seu site */
-}
-
-.checkmark__circle {
-    stroke-dasharray: 166;
-    stroke-dashoffset: 166;
-    stroke-width: 2;
-    stroke-miterlimit: 10;
-    stroke: #7bb676;
-    fill: none;
-    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-}
-
-.checkmark {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: block;
-    stroke-width: 2;
-    stroke: #fff;
-    stroke-miterlimit: 10;
-    margin: 10% auto;
-    box-shadow: inset 0px 0px 0px #7bb676;
-    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
-}
-
-.checkmark__check {
-    transform-origin: 50% 50%;
-    stroke-dasharray: 48;
-    stroke-dashoffset: 48;
-    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-}
-
-@keyframes stroke {
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes scale {
-    0%, 100% {
-        transform: none;
-    }
-    50% {
-        transform: scale3d(1.1, 1.1, 1);
-    }
-}
-
-@keyframes fill {
-    100% {
-        box-shadow: inset 0px 0px 0px 30px #7bb676;
-    }
-}
-
-
-    </style>
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <canvas id="code-background"></canvas>
-
-    <div id="hamburger-icon">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+  <header class="main-header">
+    <div class="header-content">
+      <div class="logo gradient-text">&lt;CR./&gt;</div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="theme-switcher">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <input type="checkbox" id="theme-toggle" class="sr-only" />
+        <label for="theme-toggle" class="sr-only">Mudar tema</label>
+      </div>
     </div>
+  </header>
 
-    <div id="sidebar">
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre Mim</a></li>
-                <li><a href="#importancia">Site ou App?</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-        <div class="sidebar-footer">
-            <p>&copy; 2025 Carol Ribeiro</p>
+  <main>
+    <section id="inicio">
+      <div class="home-content">
+        <div class="home-text">
+          <h1><span class="gradient-text">&lt;Carol Ribeiro/&gt;</span></h1>
+          <p><span class="gradient-text"> | Developer Full-Stack | Software Engineer |</span></p>
         </div>
-    </div>
-
-    <main>
-        <section id="inicio">
-            <div class="inicio-box">
-                <h1><span class="gradient-text">&lt;Carol Ribeiro/&gt;</span></h1>
-                <p><span class="gradient-text"> | Developer Full-Stack | Software Engineer |</p>
-            </div>
-        </section>
-
-        <section id="sobre" class="hidden" style="padding: 30px 20px;">
-            <div class="container">
-                <h2>Sobre Mim</h2>
-                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">Olá!</p>
-                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">Sou Carol Ribeiro, uma desenvolvedora com foco em criar soluções inovadoras e eficientes. Tenho experiência em diversas tecnologias e estou sempre em busca de novos desafios para aprimorar minhas habilidades.</p> 
-            </div>
-        </section>
-
-        <section id="importancia" class="hidden" style="padding: 30px 20px;">
-            <div class="container">
-                <h2>Já se perguntou qual a importância de ter seu próprio site ou aplicativo?</h2>
-                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px; text-align: justify;">Ter um site ou aplicativo próprio hoje em dia é como ter um cartão de visitas com superpoderes. Ele funciona 24 horas por dia, não tira férias, não dorme e está sempre pronto pra mostrar ao mundo quem você é, o que você faz e por que seu trabalho é incrível.</p>
-                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px; text-align: justify;">É mais do que presença digital — é autoridade. É mostrar profissionalismo, confiança e personalidade num único clique. Enquanto você dorme, seu site pode estar fechando negócios, conquistando clientes e espalhando sua marca por aí.</p>
-                <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px; text-align: justify;">E sabe o melhor? Ele pode ser do jeitinho que você quiser: moderno, criativo, funcional, com a sua cara e feito sob medida. Aqui, a ideia vira projeto, e o projeto vira realidade.</p>
-                <p class="gradient-text-blue" style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px; text-align: center; font-weight: bold;">Invista em sua presença digital e colha os frutos de uma carreira de sucesso!</p>
-            </div>
-        </section>
-
-        <section id="portfolio" class="hidden">
-            <div class="container">
-                <h2>Portfólio</h2>
-                <p style="font-size: 1.4em; letter-spacing: 0.5px; word-spacing: 1px;">Explore meus perfis profissionais para ver meus projetos e minha trajetória.</p>
-                <div class="portfolio-links">
-                    <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="portfolio-link">
-                        <i class="devicon-linkedin-plain colored"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/CarolRibeiro-S" target="_blank" class="portfolio-link">
-                        <i class="devicon-github-original colored"></i>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="habilidades" class="hidden" style="padding: 30px 20px;">
-            <div class="container">
-                <h2>Habilidades</h2>
-                <div class="habilidades-logos">
-                    <i class="devicon-html5-plain-wordmark colored"></i>
-                    <i class="devicon-css3-plain-wordmark colored"></i>
-                    <i class="devicon-javascript-plain colored"></i>
-                    <i class="devicon-react-original-wordmark colored"></i>
-                    <i class="devicon-nodejs-plain-wordmark colored"></i>
-                    <i class="devicon-python-plain-wordmark colored"></i>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato" class="hidden">
-            <div class="container">
-                <h2>Contato</h2>
-                <p style="margin-bottom: 20px; font-size: 1.4em;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
-                <button id="openModalBtn" class="btn-contato">Entre em Contato</button>
-            </div>
-        </section>
-    </main>
-
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="closeBtn">&times;</span>
-            <h3>Solicite um Orçamento</h3>
-            <form id="contactForm" action="https://formspree.io/f/mwpqkoeg" method="POST">
-                <input type="text" name="nome" placeholder="Seu Nome" required>
-                <input type="email" name="email" placeholder="Seu E-mail" required>
-                <input type="tel" name="telefone" placeholder="Seu Telefone">
-                <select name="demanda" required>
-                    <option value="" disabled selected>Selecione o tipo de demanda</option>
-                    <option value="criacao-site">Criação de Site</option>
-                    <option value="criacao-app">Criação de Aplicativo</option>
-                    <option value="debugging">Debugging</option>
-                    <option value="teste">Teste de Software</option>
-                    <option value="outros-assuntos">Outros Assuntos</option>
-                </select>
-                <textarea name="mensagem" placeholder="Descreva seu projeto..." rows="4"></textarea>
-                <button type="submit" class="btn-contato">Enviar</button>
-                <p id="form-status" style="margin-top: 15px; font-weight: bold;"></p>
-            </form>
-            <div id="successMessage" style="display: none; text-align: center;">
-                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                </svg>
-                <p>Carol Ribeiro, agradeçe seu contato</p>
-            </div>
+        <div class="home-image">
+          <img src="imagem profissional.webp" alt="Carol Ribeiro" />
         </div>
+      </div>
+    </section>
+
+    <section id="sobre" style="padding: 30px 20px;">
+      <div class="container">
+        <h2>Sobre Mim</h2>
+        <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">Olá!</p>
+        <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">
+          Sou Carol Ribeiro e adoro criar coisas, sou uma desenvolvedora apaixonada por tecnologia e pela criação de projetos que unem inovação e eficiência. Amo me desafiar construindo soluções baseadas em problemas da vida real, transformando ideias em sistemas robustos, APIs Rest bem estruturadas e páginas web funcionais.
+        </p>
+
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Soft Skills</h3>
+            <div class="skill-box">
+              <ul>
+                <li><span class="checkmark-icon"></span> Resolução de problemas.</li>
+                <li><span class="checkmark-icon"></span> Proatividade.</li>
+                <li><span class="checkmark-icon"></span> Aprendizado contínuo.</li>
+                <li><span class="checkmark-icon"></span> Adaptabilidade.</li>
+                <li><span class="checkmark-icon"></span> Atenção a detalhes.</li>
+                <li><span class="checkmark-icon"></span> Orientação ao usuário (UI/UX).</li>
+                <li><span class="checkmark-icon"></span> Comunicação clara.</li>
+                <li><span class="checkmark-icon"></span> Colaboração.</li>
+                <li><span class="checkmark-icon"></span> Organização.</li>
+                <li><span class="checkmark-icon"></span> Priorização e gestão do tempo.</li>
+                <li><span class="checkmark-icon"></span> Resiliência.</li>
+                <li><span class="checkmark-icon"></span> Pensamento sistêmico.</li>
+                <li><span class="checkmark-icon"></span> Criatividade.</li>
+                <li><span class="checkmark-icon"></span> Curiosidade técnica.</li>
+                <li><span class="checkmark-icon"></span> Autocrítica/autoavaliação.</li>
+                <li><span class="checkmark-icon"></span> Orientação a resultados.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Hard Skills</h3>
+            <div class="skill-box">
+              <ul>
+                <li><i class="devicon-html5-plain colored"></i> HTML5</li>
+                <li><i class="devicon-css3-plain colored"></i> CSS3</li>
+                <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
+                <li><i class="devicon-react-original colored"></i> React</li>
+                <li><i class="devicon-nodejs-plain colored"></i> Node.js</li>
+                <li><i class="devicon-python-plain colored"></i> Python</li>
+                <li><i class="devicon-git-plain colored"></i> Git</li>
+                <li><i class="devicon-mysql-plain colored"></i> MySQL</li>
+                <li><i class="devicon-firebase-plain colored"></i> Firebase</li>
+                <li><i class="devicon-wordpress-plain colored"></i> WordPress</li>
+                <li><i class="devicon-flutter-plain colored"></i> Flutter</li>
+                <li><i class="devicon-angular-plain colored"></i> Angular</li>
+                <li><i class="devicon-github-original colored"></i> GitHub</li>
+                <li><i class="devicon-java-plain colored"></i> Java</li>
+                <li><i class="devicon-nextjs-line colored"></i> Next.js</li>
+                <li><i class="devicon-php-plain colored"></i> PHP</li>
+                <li><i class="devicon-postgresql-plain colored"></i> PostgreSQL</li>
+                <li><i class="devicon-powershell-plain colored"></i> Powershell</li>
+                <li><i class="devicon-typescript-plain colored"></i> TypeScript</li>
+                <li><i class="devicon-vercel-original colored"></i> Vercel</li>
+                <li><i class="devicon-vscode-plain colored"></i> VSCode</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" style="padding: 30px 20px;">
+      <div class="container">
+        <h2>Serviços</h2>
+        <h3>O que eu ofereço</h3>
+
+        <!-- GRID DE CARDS -->
+        <section class="services">
+          <!-- UI/UX -->
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">▦</div>
+            <div>
+              <h3 class="service-title">Ui/UX<br />Designer</h3>
+              <a class="service-link" href="#s-uiux">Veja mais →</a>
+            </div>
+          </article>
+
+          <!-- Front-End -->
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">{ }</div>
+            <div>
+              <h3 class="service-title">Front-End</h3>
+              <a class="service-link" href="#s-frontend">Veja mais →</a>
+            </div>
+          </article>
+
+          <!-- Back-End (NOVO) -->
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">DB</div>
+            <div>
+              <h3 class="service-title">Back-End</h3>
+              <a class="service-link" href="#s-backend">Veja mais →</a>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <!-- ====== MODAIS DE SERVIÇOS (CSS-only :target, classes únicas p/ evitar conflito) ====== -->
+    <!-- UI/UX -->
+    <div id="s-uiux" class="smodal" role="dialog" aria-labelledby="uiux-title" aria-modal="true">
+      <div class="smodal-box">
+        <a class="smodal-close" aria-label="Fechar">×</a>
+        <h3 id="uiux-title" class="smodal-title">Ui/UX<br />Designer</h3>
+        <ul class="smodal-list">
+          <li>Desenvolvo o layout da sua aplicação mobile ou web.</li>
+          <li>Crio vídeos editados para apresentações de aplicações.</li>
+          <li>Desenvolvo interfaces UI/UX interativas.</li>
+          <li>Crio logotipos de marcas.</li>
+          <li>E muito mais…</li>
+        </ul>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Carol Ribeiro. Todos os direitos reservados.</p>
-    </footer>
-
-    <div id="chat-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <!-- Front-End -->
+    <div id="s-frontend" class="smodal" role="dialog" aria-labelledby="frontend-title" aria-modal="true">
+      <div class="smodal-box">
+        <a class="smodal-close" aria-label="Fechar">×</a>
+        <h3 id="frontend-title" class="smodal-title">Front-End</h3>
+        <ul class="smodal-list">
+          <li>Aplico lading pages.</li>
+          <li>Desenvolvo páginas com designers diversos.</li>
+          <li>Manutenção de códigos.</li>
+          <li>Crio a respobsividade do seu site.</li>
+          <li>Implementações de novas funcionalidades.</li>
+          <li>E muito mais...</li>
+        </ul>
+      </div>
     </div>
 
-    <div id="scroll-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    <!-- Back-End (NOVO) -->
+    <div id="s-backend" class="smodal" role="dialog" aria-labelledby="backend-title" aria-modal="true">
+      <div class="smodal-box">
+        <a class="smodal-close" aria-label="Fechar">×</a>
+        <h3 id="backend-title" class="smodal-title">Back-End</h3>
+        <ul class="smodal-list">
+          <li>APIs REST seguras e escaláveis (Node.js/Express).</li>
+          <li>Banco de dados SQL/NoSQL (PostgreSQL, MongoDB).</li>
+          <li>Autenticação/JWT, RBAC e boas práticas de segurança.</li>
+          <li>Integração com serviços externos e filas.</li>
+          <li>Testes, logs e observabilidade.</li>
+          <li>E muito mais...</li>
+        </ul>
+      </div>
     </div>
 
-    <script>
-        
+    
 
-        document.querySelectorAll('#sidebar nav ul li a').forEach(anchor => {
-            anchor.addEventListener('mouseenter', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                navLinks.forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-            });
+    <section id="portfolio">
+      <div class="container">
+        <h2>Portfólio</h2>
+        <p style="font-size: 1.4em; letter-spacing: 0.5px; word-spacing: 1px;">Explore meus perfis profissionais para ver meus projetos e minha trajetória.</p>
+        <div class="portfolio-links">
+          <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="portfolio-link">
+            <i class="devicon-linkedin-plain colored"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/CarolRibeiro-S" target="_blank" class="portfolio-link">
+            <i class="devicon-github-original colored"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-            anchor.addEventListener('mouseleave', function () {
-                this.classList.remove('active');
-                highlightActiveLink(); // Re-evaluate active link based on scroll position
-            });
-        });
-const modal = document.getElementById("contactModal");
-const openModalBtn = document.getElementById("openModalBtn");
-const chatIcon = document.getElementById("chat-icon");
-const closeBtn = document.getElementsByClassName("closeBtn")[0];
+    <section id="habilidades" style="padding: 30px 20px;">
+      <div class="container">
+        <h2>Habilidades</h2>
+        <div class="habilidades-logos">
+          <i class="devicon-html5-plain-wordmark colored"></i>
+          <i class="devicon-css3-plain-wordmark colored"></i>
+          <i class="devicon-javascript-plain colored"></i>
+          <i class="devicon-react-original-wordmark colored"></i>
+          <i class="devicon-nodejs-plain-wordmark colored"></i>
+          <i class="devicon-python-plain-wordmark colored"></i>
+          <i class="devicon-git-plain-wordmark colored"></i>
+          <i class="devicon-mysql-plain-wordmark colored"></i>
+          <i class="devicon-firebase-plain-wordmark colored"></i>
+          <i class="devicon-wordpress-plain-wordmark colored"></i>
+          <i class="devicon-flutter-plain colored"></i>
+          <i class="devicon-angular-plain colored"></i>
+          <i class="devicon-github-original"></i>
+          <i class="devicon-java-plain colored"></i>
+          <i class="devicon-nextjs-line"></i>
+          <i class="devicon-php-plain"></i>
+          <i class="devicon-postgresql-plain"></i>
+          <i class="devicon-powershell-plain"></i>
+          <i class="devicon-powershell-plain"></i>
+          <i class="devicon-typescript-plain"></i>
+          <i class="devicon-vercel-original-wordmark"></i>
+          <i class="devicon-vscode-plain"></i>
+                                      
+        </div>
+      </div>
+    </section>
 
-const openModal = function() {
-    modal.style.display = "block";
-}
+    <section id="contato">
+      <div class="container">
+        <h2>Contato</h2>
+        <p style="margin-bottom: 20px; font-size: 1.4em;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
+        <button id="openModalBtn" class="btn-contato">Entre em Contato</button>
+      </div>
+    </section>
+  </main>
 
-openModalBtn.onclick = openModal;
-chatIcon.onclick = openModal;
+  <!-- Modal de contato (mantive como estava, classe .modal própria) -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+      <h3>Solicite um Orçamento</h3>
+      <form id="contactForm" action="https://formspree.io/f/mwpqkoeg" method="POST">
+        <input type="text" name="nome" placeholder="Seu Nome" required />
+        <input type="email" name="email" placeholder="Seu E-mail" required />
+        <input type="tel" name="telefone" placeholder="Seu Telefone" />
+        <select name="demanda" required>
+          <option value="" disabled selected>Selecione o tipo de demanda</option>
+          <option value="criacao-site">Criação de Site</option>
+          <option value="criacao-app">Criação de Aplicativo</option>
+          <option value="debugging">Debugging</option>
+          <option value="teste">Teste de Software</option>
+          <option value="outros-assuntos">Outros Assuntos</option>
+        </select>
+        <textarea name="mensagem" placeholder="Descreva seu projeto..." rows="4"></textarea>
+        <button type="submit" class="btn-contato">Enviar</button>
+        <p id="form-status" style="margin-top: 15px; font-weight: bold;"></p>
+      </form>
+      <div id="successMessage" style="display: none; text-align: center;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+        <p>Carol Ribeiro, agradeçe seu contato!</p>
+      </div>
+    </div>
+  </div>
 
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-}
+  <footer>
+    <p>&copy; 2025 Carol Ribeiro. Todos os direitos reservados.</p>
+  </footer>
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+  <div id="chat-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </div>
 
-// Simulação de envio de formulário (mantida)
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-});
+  <div id="scroll-to-top">
+    <div class="dashed-circle"></div>
+    <div class="follower-circle"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </div>
 
-// Fundo de Código Fluindo Horizontalmente (mantido)
-const codeCanvas = document.getElementById('code-background');
-const codeCtx = codeCanvas.getContext('2d');
-
-codeCanvas.width = window.innerWidth;
-codeCanvas.height = window.innerHeight;
-
-const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>/?';
-const fontSize = 16;
-const rows = codeCanvas.height / fontSize;
-
-const drops = [];
-for (let i = 0; i < rows; i++) {
-    drops[i] = Math.random() * codeCanvas.width / fontSize;
-}
-
-function drawCodeBackground() {
-    codeCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    codeCtx.fillRect(0, 0, codeCanvas.width, codeCanvas.height);
-
-    codeCtx.fillStyle = '#00aaff';
-    codeCtx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        codeCtx.fillText(text, drops[i] * fontSize, i * fontSize);
-
-        if (drops[i] * fontSize > codeCanvas.width && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
-}
-
-setInterval(drawCodeBackground, 33);
-
-window.addEventListener('resize', () => {
-    codeCanvas.width = window.innerWidth;
-    codeCanvas.height = window.innerHeight;
-    const newRows = codeCanvas.height / fontSize;
-    drops.length = newRows;
-    for (let i = 0; i < newRows; i++) {
-        if (drops[i] === undefined) {
-            drops[i] = Math.random() * codeCanvas.width / fontSize;
-        }
-    }
-});
-
-// Lógica do Hamburger e Sidebar
-const hamburgerIcon = document.getElementById('hamburger-icon');
-  const sidebar = document.getElementById('sidebar');
-
-  hamburgerIcon.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    hamburgerIcon.classList.toggle('active');
-  });
-
-  // Fechar menu se clicar em algum link do menu (opcional)
-  document.querySelectorAll('#sidebar a').forEach(link => {
-    link.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-      hamburgerIcon.classList.remove('active');
-    });
-  });
-
-
-
-// Lógica de Destaque da Seção Ativa
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('#sidebar nav ul li a');
-
-navLinks.forEach(anchor => {
-    anchor.addEventListener('mouseenter', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-        navLinks.forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-    });
-
-    anchor.addEventListener('mouseleave', function () {
-        this.classList.remove('active');
-        highlightActiveLink(); // Re-evaluate active link based on scroll position
-    });
-});
-
-const highlightActiveLink = () => {
-    let current = '';
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const sectionBottom = sectionTop + sectionHeight;
-
-        // Check if the current scroll position is within the section
-        if (scrollY >= sectionTop && scrollY < sectionBottom) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
-};
-
-window.addEventListener('scroll', highlightActiveLink);
-window.addEventListener('load', highlightActiveLink); // Para destacar a seção inicial ao carregar
-
-// Lógica do Botão Voltar ao Topo
-const scrollToTopBtn = document.getElementById('scroll-to-top');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) { // Mostra o botão após rolar 300px
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
-    }
-});
-
-scrollToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-    </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
