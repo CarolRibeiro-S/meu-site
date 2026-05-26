@@ -3,287 +3,520 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon-512.png">
   <title>&lt; Carol Ribeiro/&gt; - Portfólio</title>
-
-  <!-- Ícones Devicon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css">
-
-  <!-- Fonte (mova para o <head> em vez de deixar no body) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Seu CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="main-header">
     <div class="header-content">
-      <div class="logo gradient-text">&lt;CR./&gt;</div>
+      <a href="#inicio" class="logo gradient-text">&lt;CR./&gt;</a>
+
       <nav class="main-nav">
         <ul>
           <li><a href="#inicio">Home</a></li>
+          <li><a href="#projetos">Projetos</a></li>
           <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#habilidades">Skills</a></li>
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#habilidades">Habilidades</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
-      <div class="menu-toggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <div class="theme-switcher">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-        <input type="checkbox" id="theme-toggle" class="sr-only" />
-        <label for="theme-toggle" class="sr-only">Mudar tema</label>
+      <div class="header-actions">
+        <a href="CURRICULO_Carol_Ribeiro_2026.pdf" download class="btn-cv">Download CV</a>
+        <div class="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="theme-switcher">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <input type="checkbox" id="theme-toggle" class="sr-only" />
+          <label for="theme-toggle" class="sr-only">Mudar tema</label>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <section id="inicio">
-      <div class="home-content">
-        <div class="home-text">
-          <h1><span class="gradient-text">&lt;Carol Ribeiro/&gt;</span></h1>
-          <p><span class="gradient-text"> | Developer Full-Stack | <span class="mobile-break"></span>Software Engineer |</span></p>
+    <!-- ====== HERO ====== -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-blob hero-blob--1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob--2" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-greeting"><span class="mono">&lt;</span> Olá, eu sou <span class="mono">/&gt;</span></p>
+          <h1 class="hero-name gradient-text">Carol Ribeiro</h1>
+          <p class="hero-subtitle"><span class="typing-text"></span><span class="typing-cursor">|</span></p>
+          <div class="hero-cta">
+            <button class="open-modal-btn btn-primary">Entre em Contato</button>
+            <a href="CURRICULO_Carol_Ribeiro_2026.pdf" download class="btn-cv-hero">↓ Download CV</a>
+          </div>
         </div>
-        <div class="home-image">
-          <img src="imagem profissional.webp" alt="Carol Ribeiro" />
+        <div class="hero-image">
+          <div class="hero-photo-wrap">
+            <img src="foto nova w.png" alt="Carol Ribeiro" />
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="sobre" style="padding: 30px 20px;">
+    <!-- ====== PROJETOS ====== -->
+    <section id="projetos">
+      <div class="container">
+        <h2>Projetos</h2>
+        <p class="section-subtitle">Trabalhos que demonstram minhas habilidades na prática</p>
+
+        <div class="projects-filter">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="app">App</button>
+          <button class="filter-btn" data-filter="api">API</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- carolribeiros.com.br -->
+          <article class="project-card" data-category="web">
+            <div class="project-thumb project-thumb--fill">
+              <div class="project-slider" data-interval="3000">
+                <img src="images/cr/tela 1 cr.png" alt="Carol Ribeiro 1" class="active" />
+                <img src="images/cr/tela 2 cr.png" alt="Carol Ribeiro 2" />
+                <img src="images/cr/tela 3 cr.png" alt="Carol Ribeiro 3" />
+                <img src="images/cr/tela 4 cr.png" alt="Carol Ribeiro 4" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>carolribeiros.com.br</h3>
+                <span class="project-year">2025</span>
+              </div>
+              <p>Portfólio pessoal desenvolvido do zero com dark/light theme, animações e design responsivo.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Formspree</span>
+                <span class="tag">VS Code</span>
+              </div>
+
+
+              <div class="project-links">
+                <a href="https://github.com/CarolRibeiro-S" target="_blank" class="project-link-icon">
+                  <i class="devicon-github-original"></i> GitHub
+                </a>
+                <a href="https://carolribeiros.com.br" target="_blank" class="project-link-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- BeautyHub -->
+          <article class="project-card" data-category="app">
+            <div class="project-thumb">
+              <video src="images/BeautyHub/BeautyHub.mp4" autoplay loop muted playsinline></video>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>BeautyHub</h3>
+                <span class="project-year">2024</span>
+              </div>
+              <p>App Android para gestão de salão de beleza — agendamentos, clientes e financeiro integrados.</p>
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Kotlin</span>
+                <span class="tag">Java</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Railway</span>
+                <span class="tag">Postman</span>
+                <span class="tag">VS Code</span>
+              </div>
+              <div class="project-links">
+                <span class="restricted-tag">Em breve</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- QPizza -->
+          <article class="project-card" data-category="web">
+            <div class="project-thumb">
+              <div class="project-slider" data-interval="3000">
+                <img src="images/qpizza/tela 1 qpizza.png" alt="QPizza 1" class="active" />
+                <img src="images/qpizza/tela 2 qpizza.png" alt="QPizza 2" />
+                <img src="images/qpizza/tela 3 qpizza.png" alt="QPizza 3" />
+                <img src="images/qpizza/tela 4 qpizza.png" alt="QPizza 4" />
+                <img src="images/qpizza/tela 5 qpizza.png" alt="QPizza 5" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>QPizza</h3>
+                <span class="project-year">2024</span>
+              </div>
+              <p>Site institucional para pizzaria com cardápio digital e integração WhatsApp.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">VS Code</span>
+              </div>
+              <div class="project-links">
+                <a href="https://qpizza-site.vercel.app/" target="_blank" class="project-link-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Flamingo Tabacaria -->
+          <article class="project-card" data-category="web">
+            <div class="project-thumb">
+              <div class="project-slider" data-interval="3000">
+                <img src="images/flamingo/TELA 1 FLAMINGO.png" alt="Flamingo 1" class="active" />
+                <img src="images/flamingo/TELA 2 FLAMINGO.png" alt="Flamingo 2" />
+                <img src="images/flamingo/TELA 3 FLAMINGO.png" alt="Flamingo 3" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>Flamingo Tabacaria</h3>
+                <span class="project-year">2024</span>
+              </div>
+              <p>Site institucional com e-commerce em desenvolvimento para tabacaria premium.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">VS Code</span>
+              </div>
+              <div class="project-links">
+                <a href="https://flamingotab.com.br" target="_blank" class="project-link-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ju Fiche -->
+          <article class="project-card" data-category="web">
+            <div class="project-thumb">
+              <div class="project-slider" data-interval="3000">
+                <img src="images/ju fiche/tela 1 juh fiche.png" alt="Ju Fiche 1" class="active" />
+                <img src="images/ju fiche/tela 2 juh fiche.png" alt="Ju Fiche 2" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>Ju Fiche</h3>
+                <span class="project-year">2024</span>
+              </div>
+              <p>Site institucional para fotógrafa profissional com galeria de trabalhos e contato.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">VS Code</span>
+              </div>
+              <div class="project-links">
+                <a href="http://www.jufiche.com.br" target="_blank" class="project-link-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sistema Pastelaria -->
+          <article class="project-card" data-category="web">
+            <div class="project-thumb">
+              <div class="project-placeholder">
+                <i class="devicon-php-plain"></i>
+                <span>Em breve</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>Sistema Pastelaria</h3>
+                <span class="project-year">2023</span>
+              </div>
+              <p>Sistema de pedidos e gestão operacional para pastelaria com painel administrativo completo.</p>
+              <div class="project-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">VS Code</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/CarolRibeiro-S" target="_blank" class="project-link-icon">
+                  <i class="devicon-github-original"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Polícia Federal -->
+          <article class="project-card" data-category="api">
+            <div class="project-thumb">
+              <div class="project-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Acesso Restrito</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-header">
+                <h3>Software Polícia Federal</h3>
+                <span class="project-year">2024</span>
+              </div>
+              <p>Software institucional para gestão de processos internos. Links indisponíveis por restrição de acesso.</p>
+              <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Oracle</span>
+                <span class="tag">VS Code</span>
+              </div>
+              <div class="project-links">
+                <span class="restricted-tag">Acesso Restrito</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SOBRE ====== -->
+    <section id="sobre">
       <div class="container">
         <h2>Sobre Mim</h2>
-        <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">Olá!</p>
-        <p style="font-size: 1.4em; letter-spacing: 0.8px; word-spacing: 1px;">
-          Sou Carol Ribeiro e adoro criar coisas, sou uma desenvolvedora apaixonada por tecnologia e pela criação de projetos que unem inovação e eficiência. Amo me desafiar construindo soluções baseadas em problemas da vida real, transformando ideias em sistemas robustos, APIs Rest bem estruturadas e páginas web funcionais.
-        </p>
+        <p class="section-subtitle">Trajetória e experiência</p>
 
-        <div class="skills-container">
-          <div class="skill-category">
-            <h3>Soft Skills</h3>
-            <div class="skill-box">
-              <ul>
-                <li><span class="checkmark-icon"></span> Resolução de problemas.</li>
-                <li><span class="checkmark-icon"></span> Proatividade.</li>
-                <li><span class="checkmark-icon"></span> Aprendizado contínuo.</li>
-                <li><span class="checkmark-icon"></span> Adaptabilidade.</li>
-                <li><span class="checkmark-icon"></span> Atenção a detalhes.</li>
-                <li><span class="checkmark-icon"></span> Orientação ao usuário (UI/UX).</li>
-                <li><span class="checkmark-icon"></span> Comunicação clara.</li>
-                <li><span class="checkmark-icon"></span> Colaboração.</li>
-                <li><span class="checkmark-icon"></span> Organização.</li>
-                <li><span class="checkmark-icon"></span> Priorização e gestão do tempo.</li>
-                <li><span class="checkmark-icon"></span> Resiliência.</li>
-                <li><span class="checkmark-icon"></span> Pensamento sistêmico.</li>
-                <li><span class="checkmark-icon"></span> Criatividade.</li>
-                <li><span class="checkmark-icon"></span> Curiosidade técnica.</li>
-                <li><span class="checkmark-icon"></span> Autocrítica/autoavaliação.</li>
-                <li><span class="checkmark-icon"></span> Orientação a resultados.</li>
-              </ul>
+        <div class="about-layout">
+          <div class="about-bio">
+            <p>Sou Carol Ribeiro, desenvolvedora apaixonada por tecnologia e pela criação de soluções que unem inovação e eficiência. Construo desde APIs REST bem estruturadas até interfaces web funcionais e performáticas — sempre com foco em qualidade e experiência do usuário.</p>
+            <div class="about-links">
+              <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="about-link">
+                <i class="devicon-linkedin-plain colored"></i> LinkedIn
+              </a>
+              <a href="https://github.com/CarolRibeiro-S" target="_blank" class="about-link">
+                <i class="devicon-github-original colored"></i> GitHub
+              </a>
             </div>
           </div>
-          <div class="skill-category">
-            <h3>Hard Skills</h3>
-            <div class="skill-box">
-              <ul>
-                <li><i class="devicon-html5-plain colored"></i> HTML5</li>
-                <li><i class="devicon-css3-plain colored"></i> CSS3</li>
-                <li><i class="devicon-javascript-plain colored"></i> JavaScript</li>
-                <li><i class="devicon-react-original colored"></i> React</li>
-                <li><i class="devicon-nodejs-plain colored"></i> Node.js</li>
-                <li><i class="devicon-python-plain colored"></i> Python</li>
-                <li><i class="devicon-git-plain colored"></i> Git</li>
-                <li><i class="devicon-mysql-plain colored"></i> MySQL</li>
-                <li><i class="devicon-firebase-plain colored"></i> Firebase</li>
-                <li><i class="devicon-wordpress-plain colored"></i> WordPress</li>
-                <li><i class="devicon-flutter-plain colored"></i> Flutter</li>
-                <li><i class="devicon-angular-plain colored"></i> Angular</li>
-                <li><i class="devicon-github-original colored"></i> GitHub</li>
-                <li><i class="devicon-java-plain colored"></i> Java</li>
-                <li><i class="devicon-nextjs-line colored"></i> Next.js</li>
-                <li><i class="devicon-php-plain colored"></i> PHP</li>
-                <li><i class="devicon-postgresql-plain colored"></i> PostgreSQL</li>
-                <li><i class="devicon-powershell-plain colored"></i> Powershell</li>
-                <li><i class="devicon-typescript-plain colored"></i> TypeScript</li>
-                <li><i class="devicon-vercel-original colored"></i> Vercel</li>
-                <li><i class="devicon-vscode-plain colored"></i> VSCode</li>
-              </ul>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2022 – 2025</span>
+                <h4>Analista Financeiro</h4>
+                <p>Gestão e análise financeira, desenvolvendo visão estratégica de negócios, dados e processos.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2024 – atual</span>
+                <h4>Dev Full Stack</h4>
+                <p>Desenvolvimento de sistemas web e mobile — APIs REST, apps Android/Flutter e sites institucionais.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2025 – atual</span>
+                <h4>Engenharia de Software</h4>
+                <p>Graduação em andamento, aplicando fundamentos de engenharia em projetos reais e desafiadores.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="servicos" style="padding: 30px 20px;">
+    <!-- ====== SKILLS ====== -->
+    <section id="habilidades">
+      <div class="container">
+        <h2>Skills</h2>
+        <p class="section-subtitle">Tecnologias que domino</p>
+
+        <div class="skills-group">
+          <div class="skills-category-block">
+            <h3 class="skills-category-title">Frontend</h3>
+            <div class="badges">
+              <span class="badge"><i class="devicon-html5-plain colored"></i> HTML</span>
+              <span class="badge"><i class="devicon-css3-plain colored"></i> CSS</span>
+              <span class="badge"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+              <span class="badge"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+              <span class="badge"><i class="devicon-react-original colored"></i> React</span>
+              <span class="badge"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <h3 class="skills-category-title">Backend</h3>
+            <div class="badges">
+              <span class="badge"><i class="devicon-java-plain colored"></i> Java</span>
+              <span class="badge"><i class="devicon-kotlin-plain colored"></i> Kotlin</span>
+              <span class="badge"><i class="devicon-spring-plain colored"></i> Spring Boot</span>
+              <span class="badge"><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+              <span class="badge"><i class="devicon-php-plain colored"></i> PHP</span>
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <h3 class="skills-category-title">Banco de Dados</h3>
+            <div class="badges">
+              <span class="badge"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+              <span class="badge"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+              <span class="badge"><i class="devicon-sqlite-plain colored"></i> SQLite</span>
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <h3 class="skills-category-title">Ferramentas</h3>
+            <div class="badges">
+              <span class="badge"><i class="devicon-git-plain colored"></i> Git</span>
+              <span class="badge"><i class="devicon-github-original colored"></i> GitHub</span>
+              <span class="badge"><i class="devicon-figma-plain colored"></i> Figma</span>
+              <span class="badge badge--text">n8n</span>
+              <span class="badge"><i class="devicon-amazonwebservices-original colored"></i> AWS</span>
+              <span class="badge"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SERVIÇOS ====== -->
+    <section id="servicos">
       <div class="container">
         <h2>Serviços</h2>
-        <h3>O que eu ofereço</h3>
+        <p class="section-subtitle">O que eu ofereço</p>
 
-        <!-- GRID DE CARDS -->
-        <section class="services">
-          <!-- UI/UX -->
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">▦</div>
-            <div>
-              <h3 class="service-title">Ui/UX<br />Designer</h3>
-              <a class="service-link" href="#s-uiux">Veja mais →</a>
+        <div class="accordion">
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-icon acc-icon--uiux" aria-hidden="true"></div>
+              <span class="acc-title">Ui/UX Designer</span>
+              <svg class="acc-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-list">
+                <li>Desenvolvo o layout da sua aplicação mobile ou web.</li>
+                <li>Crio vídeos editados para apresentações de aplicações.</li>
+                <li>Desenvolvo interfaces UI/UX interativas.</li>
+                <li>Crio logotipos de marcas.</li>
+                <li>E muito mais…</li>
+              </ul>
             </div>
-          </article>
+          </div>
 
-          <!-- Front-End -->
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">{ }</div>
-            <div>
-              <h3 class="service-title">Front-End</h3>
-              <a class="service-link" href="#s-frontend">Veja mais →</a>
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-icon acc-icon--frontend" aria-hidden="true"></div>
+              <span class="acc-title">Front-End</span>
+              <svg class="acc-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-list">
+                <li>Aplico landing pages.</li>
+                <li>Desenvolvo páginas com designers diversos.</li>
+                <li>Manutenção de códigos.</li>
+                <li>Crio a responsividade do seu site.</li>
+                <li>Implementações de novas funcionalidades.</li>
+                <li>E muito mais...</li>
+              </ul>
             </div>
-          </article>
+          </div>
 
-          <!-- Back-End (NOVO) -->
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">DB</div>
-            <div>
-              <h3 class="service-title">Back-End</h3>
-              <a class="service-link" href="#s-backend">Veja mais →</a>
+          <div class="acc-item">
+            <button class="acc-header" aria-expanded="false">
+              <div class="acc-icon acc-icon--backend" aria-hidden="true"></div>
+              <span class="acc-title">Back-End</span>
+              <svg class="acc-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-list">
+                <li>APIs REST seguras e escaláveis (Node.js/Express).</li>
+                <li>Banco de dados SQL/NoSQL (PostgreSQL, MongoDB).</li>
+                <li>Autenticação/JWT, RBAC e boas práticas de segurança.</li>
+                <li>Integração com serviços externos e filas.</li>
+                <li>Testes, logs e observabilidade.</li>
+                <li>E muito mais...</li>
+              </ul>
             </div>
-          </article>
-        </section>
-      </div>
-    </section>
-
-    <!-- ====== MODAIS DE SERVIÇOS (CSS-only :target, classes únicas p/ evitar conflito) ====== -->
-    <!-- UI/UX -->
-    <div id="s-uiux" class="smodal" role="dialog" aria-labelledby="uiux-title" aria-modal="true">
-      <div class="smodal-box">
-        <a class="smodal-close" aria-label="Fechar">×</a>
-        <h3 id="uiux-title" class="smodal-title">Ui/UX<br />Designer</h3>
-        <ul class="smodal-list">
-          <li>Desenvolvo o layout da sua aplicação mobile ou web.</li>
-          <li>Crio vídeos editados para apresentações de aplicações.</li>
-          <li>Desenvolvo interfaces UI/UX interativas.</li>
-          <li>Crio logotipos de marcas.</li>
-          <li>E muito mais…</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Front-End -->
-    <div id="s-frontend" class="smodal" role="dialog" aria-labelledby="frontend-title" aria-modal="true">
-      <div class="smodal-box">
-        <a class="smodal-close" aria-label="Fechar">×</a>
-        <h3 id="frontend-title" class="smodal-title">Front-End</h3>
-        <ul class="smodal-list">
-          <li>Aplico lading pages.</li>
-          <li>Desenvolvo páginas com designers diversos.</li>
-          <li>Manutenção de códigos.</li>
-          <li>Crio a respobsividade do seu site.</li>
-          <li>Implementações de novas funcionalidades.</li>
-          <li>E muito mais...</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Back-End (NOVO) -->
-    <div id="s-backend" class="smodal" role="dialog" aria-labelledby="backend-title" aria-modal="true">
-      <div class="smodal-box">
-        <a class="smodal-close" aria-label="Fechar">×</a>
-        <h3 id="backend-title" class="smodal-title">Back-End</h3>
-        <ul class="smodal-list">
-          <li>APIs REST seguras e escaláveis (Node.js/Express).</li>
-          <li>Banco de dados SQL/NoSQL (PostgreSQL, MongoDB).</li>
-          <li>Autenticação/JWT, RBAC e boas práticas de segurança.</li>
-          <li>Integração com serviços externos e filas.</li>
-          <li>Testes, logs e observabilidade.</li>
-          <li>E muito mais...</li>
-        </ul>
-      </div>
-    </div>
-
-    
-
-    <section id="portfolio">
-      <div class="container">
-        <h2>Portfólio</h2>
-        <p style="font-size: 1.4em; letter-spacing: 0.5px; word-spacing: 1px;">Explore meus perfis profissionais para ver meus projetos e minha trajetória.</p>
-        <div class="portfolio-links">
-          <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="portfolio-link">
-            <i class="devicon-linkedin-plain colored"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://github.com/CarolRibeiro-S" target="_blank" class="portfolio-link">
-            <i class="devicon-github-original colored"></i>
-            <span>GitHub</span>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="habilidades" style="padding: 30px 20px;">
-      <div class="container">
-        <h2>Habilidades</h2>
-        <div class="habilidades-logos">
-          <i class="devicon-html5-plain-wordmark colored"></i>
-          <i class="devicon-css3-plain-wordmark colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
-          <i class="devicon-react-original-wordmark colored"></i>
-          <i class="devicon-nodejs-plain-wordmark colored"></i>
-          <i class="devicon-python-plain-wordmark colored"></i>
-          <i class="devicon-git-plain-wordmark colored"></i>
-          <i class="devicon-mysql-plain-wordmark colored"></i>
-          <i class="devicon-firebase-plain-wordmark colored"></i>
-          <i class="devicon-wordpress-plain-wordmark colored"></i>
-          <i class="devicon-flutter-plain colored"></i>
-          <i class="devicon-angular-plain colored"></i>
-          <i class="devicon-github-original"></i>
-          <i class="devicon-java-plain colored"></i>
-          <i class="devicon-nextjs-line"></i>
-          <i class="devicon-php-plain"></i>
-          <i class="devicon-postgresql-plain"></i>
-          <i class="devicon-powershell-plain"></i>
-          <i class="devicon-powershell-plain"></i>
-          <i class="devicon-typescript-plain"></i>
-          <i class="devicon-vercel-original-wordmark"></i>
-          <i class="devicon-vscode-plain"></i>
-                                      
-        </div>
-      </div>
-    </section>
-
+    <!-- ====== CONTATO ====== -->
     <section id="contato">
       <div class="container">
         <h2>Contato</h2>
-        <p class="contact-text" style="margin-bottom: 20px; font-size: 1.4em;">Tem um projeto em mente ou quer bater um papo? Clique no botão abaixo!</p>
-        <button id="openModalBtn" class="btn-contato">Entre em Contato</button>
+        <p class="section-subtitle">Vamos construir algo incrível juntos</p>
+
+        <div class="contact-wrapper">
+          <p class="contact-text">Tem um projeto em mente ou quer bater um papo? Estou disponível para freelances, colaborações e oportunidades.</p>
+
+          <div class="contact-channels">
+            <a href="mailto:anacarolina.ribeiro.s@gmail.com" class="contact-channel">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              anacarolina.ribeiro.s@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="contact-channel">
+              <i class="devicon-linkedin-plain colored"></i>
+              carol-ribeiro-s
+            </a>
+            <a href="https://github.com/CarolRibeiro-S" target="_blank" class="contact-channel">
+              <i class="devicon-github-original"></i>
+              CarolRibeiro-S
+            </a>
+            <a href="https://www.instagram.com/carolribeirodev/" target="_blank" class="contact-channel">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              carolribeirodev
+            </a>
+          </div>
+
+          <button class="open-modal-btn btn-cta-gradient">Solicitar Orçamento</button>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Modal de contato (mantive como estava, classe .modal própria) -->
+  <!-- Contact Modal (JS) -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
-      <span class="closeBtn">&times;</span>
-      <h3>Solicite um Orçamento</h3>
+      <button class="closeBtn" aria-label="Fechar">&times;</button>
+      <div class="modal-header">
+        <h3>Solicite um Orçamento</h3>
+        <p class="modal-subtitle">Preencha o formulário e entrarei em contato em breve.</p>
+      </div>
       <form id="contactForm" action="https://formspree.io/f/mwpqkoeg" method="POST">
-        <input type="text" name="nome" placeholder="Seu Nome" required />
-        <input type="email" name="email" placeholder="Seu E-mail" required />
+        <div class="form-row">
+          <input type="text" name="nome" placeholder="Seu Nome" required />
+          <input type="email" name="email" placeholder="Seu E-mail" required />
+        </div>
         <input type="tel" name="telefone" placeholder="Seu Telefone" />
         <select name="demanda" required>
           <option value="" disabled selected>Selecione o tipo de demanda</option>
@@ -294,15 +527,15 @@
           <option value="outros-assuntos">Outros Assuntos</option>
         </select>
         <textarea name="mensagem" placeholder="Descreva seu projeto..." rows="4"></textarea>
-        <button type="submit" class="btn-contato">Enviar</button>
+        <button type="submit" class="btn-cta-gradient btn-submit-full">Enviar Mensagem</button>
         <p id="form-status" style="margin-top: 15px; font-weight: bold;"></p>
       </form>
-      <div id="successMessage" style="display: none; text-align: center;">
+      <div id="successMessage" style="display: none; text-align: center; padding: 32px 28px;">
         <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
           <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
           <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
         </svg>
-        <p>Carol Ribeiro, agradeçe seu contato!</p>
+        <p>Carol Ribeiro agradece seu contato!</p>
       </div>
     </div>
   </div>
@@ -312,13 +545,13 @@
   </footer>
 
   <div id="chat-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
   </div>
 
   <div id="scroll-to-top">
     <div class="dashed-circle"></div>
     <div class="follower-circle"></div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </div>
 
   <script src="js/script.js"></script>

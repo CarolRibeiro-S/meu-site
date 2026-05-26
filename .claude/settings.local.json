@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Copy-Item \"c:\\\\Users\\\\anaca\\\\OneDrive\\\\Área de Trabalho\\\\Carol\\\\ENGENHARIA DE SOFTWARE\\\\DEV PROJECTS\\\\PERSO\\\\SITE CAROL\\\\meu-primeiro-site\\\\images\\\\favicon.ico\" \"c:\\\\Users\\\\anaca\\\\OneDrive\\\\Área de Trabalho\\\\Carol\\\\ENGENHARIA DE SOFTWARE\\\\DEV PROJECTS\\\\PERSO\\\\SITE CAROL\\\\meu-primeiro-site\\\\favicon.ico\")",
+      "Bash(Copy-Item \"c:\\\\Users\\\\anaca\\\\OneDrive\\\\Área de Trabalho\\\\Carol\\\\ENGENHARIA DE SOFTWARE\\\\DEV PROJECTS\\\\PERSO\\\\SITE CAROL\\\\meu-primeiro-site\\\\images\\\\favicon-512.png\" \"c:\\\\Users\\\\anaca\\\\OneDrive\\\\Área de Trabalho\\\\Carol\\\\ENGENHARIA DE SOFTWARE\\\\DEV PROJECTS\\\\PERSO\\\\SITE CAROL\\\\meu-primeiro-site\\\\favicon-512.png\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\anaca\\OneDrive\\�rea de Trabalho\\Carol\\ENGENHARIA DE SOFTWARE\\DEV PROJECTS\\PERSO\\SITE CAROL\\meu-primeiro-site\\images"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6333ff"/>
+      <stop offset="100%" stop-color="#00c8c8"/>
+    </linearGradient>
+  </defs>
+  <!-- gradient border -->
+  <rect width="32" height="32" rx="7" fill="url(#g)"/>
+  <!-- dark inner bg -->
+  <rect x="1.5" y="1.5" width="29" height="29" rx="5.5" fill="#080810"/>
+  <!-- CR text with gradient -->
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="url(#g)">CR</text>
+</svg>
