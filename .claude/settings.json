@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"Curriculo Carol.pdf\" \"CURRICULO_Carol_Ribeiro_2026.pdf\")",
+      "Bash(rm \"CURRICULO_Carol_Ribeiro_2026 \\(2\\).docx\")"
+    ]
+  }
+}
