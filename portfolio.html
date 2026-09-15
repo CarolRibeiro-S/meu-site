@@ -52,22 +52,9 @@
         <section id="portfolio">
             <div class="container">
                 <h2>Portfólio</h2>
-                <p style="font-size: 1.4em; letter-spacing: 0.5px; word-spacing: 1px;">Explore meus perfis profissionais para ver meus projetos e minha trajetória.</p>
-                <div class="portfolio-links">
-                    <a href="https://www.linkedin.com/in/carol-ribeiro-s" target="_blank" class="portfolio-link">
-                        <i class="devicon-linkedin-plain colored"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/CarolRibeiro-S" target="_blank" class="portfolio-link">
-                        <i class="devicon-github-original colored"></i>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-                    <p class="portfolio-description" style="font-size: 1.4em; letter-spacing: 0.5px; word-spacing: 1px;">Projetos entregues.</p>
-                <a href="http://www.jufiche.com.br" target="_blank" class="portfolio-link fatias-standalone-link">
-                    <i class="fatias-de-um-domingo-icon"></i>
-                    <span class="fatias-text">Fatias de um Domingo</span>
-                </a>
+                <p class="section-subtitle">Projetos entregues.</p>
+
+                <div class="portfolio-grid" id="portfolio-grid"></div>
             </div>
         </section>
     </main>
@@ -76,7 +63,29 @@
         <p>&copy; 2025 Carol Ribeiro. Todos os direitos reservados.</p>
     </footer>
 
+    <div class="lightbox" id="portfolio-lightbox" aria-hidden="true">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>
+            <div class="lightbox-header">
+                <h3 class="lightbox-title"></h3>
+                <span class="lightbox-type"></span>
+                <p class="lightbox-desc"></p>
+            </div>
+            <div class="lightbox-stage">
+                <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagem anterior">&#8249;</button>
+                <div class="lightbox-media"></div>
+                <button type="button" class="lightbox-nav lightbox-next" aria-label="Próxima imagem">&#8250;</button>
+            </div>
+            <div class="lightbox-footer">
+                <div class="lightbox-stack"></div>
+                <div class="lightbox-footer-link"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/portfolio-projects.js?v=2"></script>
 </body>
 </html>
