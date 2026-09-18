@@ -94,7 +94,7 @@
 
           <!-- BeautyHub -->
           <article class="project-card" data-category="app" style="--acc-1:#14b8a6; --acc-2:#0a5c56;">
-            <span class="project-category-tag">◊ APP</span>
+            <span class="project-category-tag"><span class="tag-dot">◊</span> APP</span>
             <div class="project-thumb">
               <video src="images/BeautyHub/BeautyHub.mp4" autoplay loop muted playsinline></video>
             </div>
@@ -103,6 +103,7 @@
                 <h3>BeautyHub</h3>
               </div>
               <p>App Android para gestão de salão de beleza — agendamentos, clientes e financeiro integrados.</p>
+              <button type="button" class="portfolio-card-more" data-lightbox-project="BeautyHub">Ver detalhes ↗</button>
               <div class="project-tags">
                 <span class="tag"><i class="devicon-kotlin-plain colored"></i>Kotlin</span>
                 <span class="tag"><i class="devicon-firebase-plain colored"></i>Firebase</span>
@@ -116,7 +117,7 @@
 
           <!-- Vetor -->
           <article class="project-card" data-category="sistema" style="--acc-1:#8b5cf6; --acc-2:#3b82f6;">
-            <span class="project-category-tag">◊ SAAS</span>
+            <span class="project-category-tag"><span class="tag-dot">◊</span> SAAS</span>
             <div class="project-thumb">
               <div class="browser-mock">
                 <div class="browser-mock-bar">
@@ -139,6 +140,7 @@
                 <h3>Vetor</h3>
               </div>
               <p>SaaS para freelancers gerenciarem clientes, propostas e financeiro em um só lugar.</p>
+              <button type="button" class="portfolio-card-more" data-lightbox-project="Vetor">Ver detalhes ↗</button>
               <div class="project-tags">
                 <span class="tag"><i class="devicon-nextjs-original colored"></i>Next.js</span>
                 <span class="tag"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
@@ -157,7 +159,7 @@
 
           <!-- Juh Fiche -->
           <article class="project-card" data-category="web" style="--acc-1:#e8447a; --acc-2:#f28c28;">
-            <span class="project-category-tag">◊ SITE INSTITUCIONAL</span>
+            <span class="project-category-tag"><span class="tag-dot">◊</span> SITE INSTITUCIONAL</span>
             <div class="project-thumb">
               <div class="browser-mock">
                 <div class="browser-mock-bar">
@@ -179,7 +181,8 @@
               <div class="project-header">
                 <h3>Juh Fiche</h3>
               </div>
-              <p>Site de receitas com uma pegada afetiva e familiar, focado em compartilhar o prazer das receitas de domingo.</p>
+              <p>Diretora criativa sem site profissional para apresentar seu trabalho de direção de marca para produtores artesanais. Desenvolveu site multi-página com identidade visual forte.</p>
+              <button type="button" class="portfolio-card-more" data-lightbox-project="Juh Fiche">Ver detalhes ↗</button>
               <div class="project-tags">
                 <span class="tag"><i class="devicon-html5-plain colored"></i>HTML</span>
                 <span class="tag"><i class="devicon-css3-plain colored"></i>CSS</span>
@@ -196,7 +199,7 @@
 
           <!-- Opção Contabilidade -->
           <article class="project-card" data-category="sistema" style="--acc-1:#0a1f44; --acc-2:#a4d65e;">
-            <span class="project-category-tag">◊ SISTEMA</span>
+            <span class="project-category-tag"><span class="tag-dot">◊</span> SISTEMA</span>
             <div class="project-thumb">
               <div class="browser-mock">
                 <div class="browser-mock-bar">
@@ -227,6 +230,7 @@
                 <h3>Opção Contabilidade</h3>
               </div>
               <p>Sistema de gestão para escritório de contabilidade — honorários, equipe, clientes e prazos centralizados.</p>
+              <button type="button" class="portfolio-card-more" data-lightbox-project="Opção Contabilidade">Ver detalhes ↗</button>
               <div class="project-tags">
                 <span class="tag"><i class="devicon-nextjs-original colored"></i>Next.js</span>
                 <span class="tag"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
@@ -537,7 +541,29 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </div>
 
+  <div class="lightbox" id="portfolio-lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>
+      <div class="lightbox-header">
+        <h3 class="lightbox-title"></h3>
+        <span class="lightbox-type"></span>
+        <p class="lightbox-desc"></p>
+      </div>
+      <div class="lightbox-stage">
+        <button type="button" class="lightbox-nav lightbox-prev" aria-label="Imagem anterior">&#8249;</button>
+        <div class="lightbox-media"></div>
+        <button type="button" class="lightbox-nav lightbox-next" aria-label="Próxima imagem">&#8250;</button>
+      </div>
+      <div class="lightbox-footer">
+        <div class="lightbox-stack"></div>
+        <div class="lightbox-footer-link"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/script.js"></script>
   <script src="js/menu.js"></script>
+  <script src="js/portfolio-projects.js?v=4"></script>
 </body>
 </html>

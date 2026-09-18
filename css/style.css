@@ -590,15 +590,29 @@ body.light-mode .project-card:hover {
   gap: 4px;
   padding: 4px 10px;
   border-radius: 6px;
-  background: rgba(8, 8, 16, .72);
+  background: rgba(8, 8, 16, .85);
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, .14);
+  border: 1px solid rgba(160, 124, 255, .6);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.68em;
   font-weight: 500;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--acc-1, var(--blue));
+  color: #eef0f6;
+}
+
+.project-category-tag .tag-dot {
+  color: #a07cff;
+}
+
+body.light-mode .project-category-tag {
+  background: rgba(255, 255, 255, .92);
+  color: #1a1a2e;
+  border-color: rgba(99, 51, 255, .5);
+}
+
+body.light-mode .project-category-tag .tag-dot {
+  color: #6333ff;
 }
 
 /* Empurra a tag para baixo da barra de navegador falsa, evitando sobreposição */
@@ -877,13 +891,14 @@ body.light-mode .tag {
 }
 
 .btn-project--primary {
-  background: color-mix(in srgb, var(--acc-1, var(--blue)) 14%, transparent);
-  border: 1px solid var(--acc-1, var(--blue));
-  color: var(--acc-1, var(--blue));
+  background: rgba(99, 51, 255, 0.15);
+  border: 1.5px solid #a07cff;
+  color: #eef0f6;
 }
 
 .btn-project--primary:hover {
-  background: color-mix(in srgb, var(--acc-1, var(--blue)) 26%, transparent);
+  background: rgba(99, 51, 255, 0.35);
+  border-color: #c4aeff;
   transform: translateY(-2px);
 }
 
@@ -1919,6 +1934,11 @@ body.light-mode footer {
   border-color: #6333ff;
 }
 
+body.light-mode .portfolio-card {
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+}
+
 .portfolio-card-thumb {
   position: relative;
   width: 100%;
@@ -1966,11 +1986,19 @@ body.light-mode footer {
   color: #eef0f6;
 }
 
+body.light-mode .portfolio-card-head h3 {
+  color: #111111;
+}
+
 .portfolio-card-type {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75em;
   color: #00c8c8;
   letter-spacing: 0.3px;
+}
+
+body.light-mode .portfolio-card-type {
+  color: #6333ff;
 }
 
 .portfolio-card-desc {
@@ -1983,6 +2011,10 @@ body.light-mode footer {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+body.light-mode .portfolio-card-desc {
+  color: #333333;
 }
 
 .portfolio-card-more {
@@ -2004,6 +2036,14 @@ body.light-mode footer {
   text-decoration: underline;
 }
 
+body.light-mode .portfolio-card-more {
+  color: #6333ff;
+}
+
+body.light-mode .portfolio-card-more:hover {
+  color: #4a1fd4;
+}
+
 .portfolio-card-stack {
   display: flex;
   flex-wrap: wrap;
@@ -2019,6 +2059,12 @@ body.light-mode footer {
   color: #b9a4ff;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72em;
+}
+
+body.light-mode .portfolio-badge {
+  background: rgba(99, 51, 255, .1);
+  border-color: rgba(99, 51, 255, .3);
+  color: #333333;
 }
 
 .portfolio-card-action {
@@ -2039,18 +2085,32 @@ body.light-mode footer {
   gap: 6px;
   padding: 8px 16px;
   border-radius: 8px;
-  background: linear-gradient(120deg, #6333ff, #00c8c8);
-  color: #fff;
+  background: rgba(99, 51, 255, 0.15);
+  border: 1.5px solid #a07cff;
+  color: #eef0f6;
   font-family: 'Sora', sans-serif;
   font-size: 0.85em;
   font-weight: 600;
   text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 
 .portfolio-card-link:hover {
+  background: rgba(99, 51, 255, 0.35);
+  border-color: #c4aeff;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(99, 51, 255, .35);
+}
+
+body.light-mode .portfolio-card-link {
+  background: rgba(99, 51, 255, 0.08);
+  border-color: #6333ff;
+  color: #6333ff;
+}
+
+body.light-mode .portfolio-card-link:hover {
+  background: rgba(99, 51, 255, 0.18);
+  color: #4a1fd4;
 }
 
 .portfolio-card-restricted {
@@ -2063,6 +2123,10 @@ body.light-mode footer {
   padding: 6px 14px;
   border-radius: 999px;
   letter-spacing: 0.3px;
+}
+
+body.light-mode .portfolio-card-restricted {
+  color: #666666;
 }
 
 /* =========================
@@ -2249,16 +2313,19 @@ body.lightbox-open {
   gap: 6px;
   padding: 10px 22px;
   border-radius: 8px;
-  background: linear-gradient(120deg, #6333ff, #00c8c8);
-  color: #fff;
+  background: rgba(99, 51, 255, 0.15);
+  border: 1.5px solid #a07cff;
+  color: #eef0f6;
   font-family: 'Sora', sans-serif;
   font-size: 0.9em;
   font-weight: 600;
   text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 
 .lightbox-link:hover {
+  background: rgba(99, 51, 255, 0.35);
+  border-color: #c4aeff;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(99, 51, 255, .35);
 }

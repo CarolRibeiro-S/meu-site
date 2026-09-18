@@ -103,9 +103,9 @@ const projetos = [
   },
   {
     nome: "Juh Fiche",
-    tipo: "Site para confeitaria",
+    tipo: "Direção de marca",
     categoria: "web",
-    descricao: "Diretora criativa para marcas artesanais sem site profissional para apresentar seu trabalho e atrair clientes. Desenvolveu site multi-página com identidade visual forte, apresentando suas áreas de atuação e processo de trabalho.",
+    descricao: "Diretora criativa sem site profissional para apresentar seu trabalho de direção de marca para produtores artesanais. Desenvolveu site multi-página com identidade visual forte, apresentando suas áreas de atuação, processo de trabalho e portfólio de clientes.",
     stack: ["HTML", "CSS", "JavaScript"],
     link: "https://jufiche.com.br",
     imagens: [
@@ -221,11 +221,11 @@ function buildMedia(projeto, container) {
   return slideshow;
 }
 
-// Monta a grade de cards de projeto a partir do array `projetos`
+// Monta a grade de cards de projeto (quando existir #portfolio-grid) e o lightbox
+// (o lightbox funciona em qualquer página que tenha #portfolio-lightbox, com ou sem grade,
+// para ser reutilizado pelos cards estáticos de destaque do index.html)
 (function () {
   const grid = document.getElementById('portfolio-grid');
-  if (!grid) return;
-
   const lightbox = document.getElementById('portfolio-lightbox');
   const lightboxMedia = lightbox && lightbox.querySelector('.lightbox-media');
   const lightboxTitle = lightbox && lightbox.querySelector('.lightbox-title');
@@ -278,12 +278,30 @@ function buildMedia(projeto, container) {
       if (e.key === 'ArrowLeft' && lightboxSlideshow) lightboxSlideshow.prev();
       if (e.key === 'ArrowRight' && lightboxSlideshow) lightboxSlideshow.next();
     });
+
+    // Botões estáticos (ex.: cards em destaque do index.html) que só precisam
+    // apontar para o projeto pelo nome via data-lightbox-project="Nome Exato"
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-lightbox-project]');
+      if (!trigger) return;
+      const projeto = projetos.find(p => p.nome === trigger.dataset.lightboxProject);
+      if (projeto) openLightbox(projeto);
+    });
   }
+
+  if (!grid) return;
 
   projetos.forEach(projeto => {
     const card = document.createElement('article');
     card.className = 'portfolio-card';
     if (projeto.categoria) card.dataset.categoria = projeto.categoria;
+
+    if (projeto.categoria) {
+      const categoryTag = document.createElement('span');
+      categoryTag.className = 'project-category-tag';
+      categoryTag.innerHTML = `<span class="tag-dot">◊</span> ${projeto.categoria.toUpperCase()}`;
+      card.appendChild(categoryTag);
+    }
 
     const thumb = document.createElement('div');
     thumb.className = 'portfolio-card-thumb';
